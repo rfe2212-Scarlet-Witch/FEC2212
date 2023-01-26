@@ -39,47 +39,4 @@
     "dev": "webpack serve --open"
   }
 }
-{
-  "name": "fec2212",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/rfe2212-Scarlet-Witch/FEC2212.git",
-  "author": "formalmiguel <mig.alvarez92@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "axios": "^0.21.1",
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.4.3",
-    "babel-jest": "^29.0.1",
-    "babel-loader": "^9.1.2",
-    "css-loader": "^6.7.3",
-    "eslint": "^7.32.0 || ^8.2.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "jest": "^29.0.1",
-    "jest-environment-jsdom": "^29.0.1",
-    "sass": "^1.57.1",
-    "sass-loader": "^13.2.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
-  },
-  "scripts": {
-    "start": "webpack --mode=development",
-    "build": "webpack --mode=production",
-    "dev": "webpack serve --open",
-    "test": "jest"
-  }
-}
+
