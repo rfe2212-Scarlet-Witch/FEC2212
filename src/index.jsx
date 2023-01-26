@@ -1,15 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.scss';
-//import for overview
-//import for QnA
+import Overview from './Components/Overview.jsx';
+import QnA from './Components/QnA/QandA.jsx'
 //import for reviews
 
 function App() {
   return (
     <div className="app">
-      <h1>To be used by overview component</h1>
-      <div>To be used by QnA component</div>
+      <Overview/>
+      <QnA />
       <div>To be used by review component</div>
     </div>
   );
