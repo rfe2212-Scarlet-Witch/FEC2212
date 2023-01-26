@@ -14,5 +14,9 @@ function App() {
     </div>
   );
 }
+// var test = document.getElementById;
+// console.log('This IS THE TEST', test);
 const root = createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(<App/>);
+
+export default App;
