@@ -9,7 +9,7 @@ function App() {
     <div className="app">
       <Overview/>
       <QnA />
-      <div>To be used by review component</div>
+      <div className="review-comp">To be used by review component</div>
     </div>
   );
 }
