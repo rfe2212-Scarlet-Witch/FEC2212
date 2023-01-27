@@ -19,10 +19,10 @@ function App() {
     .then((data) => {
       prodArray = data.data;
       changeProd(data.data[0])
-      console.log('this is the data', data.data)
+      // console.log('this is the data', data.data)
     })
     .catch((err) => {
-      console.log('axios post for product data failed', err);
+      // console.log('axios post for product data failed', err);
     });
   }, []);
 
