@@ -6,7 +6,10 @@ let getProductInfo = (term) => {
     method: 'GET',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe${term}`,
     headers: {
-      Authorization: config.TOKEN
+      Authorization: config.TOKEN,
+    },
+    params: {
+      count: 10
     }
   };
 
