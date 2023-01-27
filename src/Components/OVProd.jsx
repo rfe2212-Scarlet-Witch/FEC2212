@@ -4,7 +4,7 @@ import OVStyle from './OVStyle.jsx'
 
 const axios = require('axios');
 
-function OVProdName (props) {
+function OVProd (props) {
   console.log(props);
 
   const [currStyles, changeStyles] = useState([]);
@@ -12,7 +12,6 @@ function OVProdName (props) {
   function handleClick () {
     axios.post('', {
       term: `/products/${props.product.id}/styles`,
-      AUTH: config.TOKEN
     })
     .then((data) => {
       console.log('this is the data', data.data)
@@ -40,7 +39,7 @@ function OVProdName (props) {
       <div>
         ------------------
       </div>
-      STYLES WILL APPEAR WHEN CLICKED
+      Styles:
         {currStyles.map((style, index) => {
           return <OVStyle style={style} key={index}/>
         })}
@@ -54,4 +53,4 @@ function OVProdName (props) {
   )
 }
 
-export default OVProdName;
+export default OVProd;
