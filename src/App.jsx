@@ -31,7 +31,7 @@ function App() {
     <div className="app">
       <Overview currProd={currProd} changeProd={changeProd} prodArray={prodArray}/>
       <QnA currProd={currProd} changeProd={changeProd} prodArray={prodArray}/>
-      <RnR/>
+      <RnR currProd={currProd}/>
       <div className="review-comp">To be used by review component</div>
     </div>
   );
