@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './index.scss';
 import Overview from './Components/Overview.jsx';
 import QnA from './Components/QnA/QandA.jsx'
+import RnR from './Components/RnR/RnR.jsx'
 //import for reviews
 const axios = require('axios');
 
@@ -30,6 +31,7 @@ function App() {
     <div className="app">
       <Overview currProd={currProd} changeProd={changeProd} prodArray={prodArray}/>
       <QnA currProd={currProd} changeProd={changeProd} prodArray={prodArray}/>
+      <RnR currProd={currProd}/>
       <div className="review-comp">To be used by review component</div>
     </div>
   );
