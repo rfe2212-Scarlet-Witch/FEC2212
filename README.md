@@ -85,3 +85,8 @@ Afterwards to begin devlopment run (yarn start) then run (yarn dev) to see in th
 
 ### Jest Installation
 run "npx jest --init"
+typescript: no
+choose test environment: jsdom
+coverage reports: yes
+provider: babel
+auto clear mock calls: no
