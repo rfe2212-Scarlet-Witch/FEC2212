@@ -6,19 +6,34 @@ import QnA from './Components/QnA/QandA.jsx'
 const axios = require('axios');
 
 function App() {
-
+  const [currProducts, changeProducts] = useState([]);
   const [currProd, changeProd] = useState([]);
+  const [currStyles, changeStyles] = useState([]); //all styles for the currently rendered product
 
-  var prodArray = [];
 
   useEffect(() => {
     axios.post('', {
       term: '/products',
     })
     .then((data) => {
-      prodArray = data.data;
+
+      changeProducts(data.data);
       changeProd(data.data[0])
-      console.log('this is the data', data.data)
+
+      //communicate with server, fetch api data for styles
+      axios.post('', {
+        term: `/products/${data.data[0].id}/styles`,
+      })
+      .then((data) => {
+        console.log('this is the data styles data', data.data)
+        changeStyles(data.data.results);
+      })
+      .catch((err) => {
+        console.log('axios post for product data failed', err);
+      });
+
+      //this is the array of products received upon page render
+      console.log('this is the data', data.data);
     })
     .catch((err) => {
       console.log('axios post for product data failed', err);
@@ -26,10 +41,12 @@ function App() {
   }, []);
 
 
+
+
   return (
     <div className="app">
-      <Overview currProd={currProd} changeProd={changeProd} prodArray={prodArray}/>
-      <QnA currProd={currProd} changeProd={changeProd} prodArray={prodArray}/>
+      <Overview currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
+      <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
       <div className="review-comp">To be used by review component</div>
     </div>
   );
