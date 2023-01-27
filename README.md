@@ -39,26 +39,26 @@
 --Each review will be on single tile containing
 	- Star Rating
 		-Up to a quarter of a review point accuracy.
-	-Date of Review 
+	-Date of Review
 		--m/d/yyyy
 	-Review Summary
-		-1 sentence summary, 60 char cap. 
-		--Bolded, appears above full review. 
+		-1 sentence summary, 60 char cap.
+		--Bolded, appears above full review.
 	-Review Body
 		-50-1000 characters long
-		-Up to 5 images 
+		-Up to 5 images
 		-Default: 250 chars to display
 			->250 chars, show more button appears
 		-Any images -> thumbnails below the review text
-			-Click thumbnail, image shows in modal window, display full res. 
+			-Click thumbnail, image shows in modal window, display full res.
 				-Close thumbnail option only
-		-Recommend- if reviewer recommends buying product, 'I recommend this product' and checkmark icon displays below review. If not recommend, nothing is displayed. 
+		-Recommend- if reviewer recommends buying product, 'I recommend this product' and checkmark icon displays below review. If not recommend, nothing is displayed.
 		-Reviewer name - username for reviewer, only username.
-			-If reviewers email is associated with a purchase, verified purchaser tag Will appear. 
+			-If reviewers email is associated with a purchase, verified purchaser tag Will appear.
 		-Response to Review
-			-If review has response, it appears below the reviewer name. Response preceded by text, 'response from seller' Visually distinguished. 
-		-Rating Helpfulness, Any user can denote if review was helpful with two buttons at the bottom, Was this Review Helpful, yes or no. Include count of yeses and nos. Clicking either will cast vote for selection and increment. 
-		-One submission for each review, if they reviewed, they cannot review again. 
+			-If review has response, it appears below the reviewer name. Response preceded by text, 'response from seller' Visually distinguished.
+		-Rating Helpfulness, Any user can denote if review was helpful with two buttons at the bottom, Was this Review Helpful, yes or no. Include count of yeses and nos. Clicking either will cast vote for selection and increment.
+		-One submission for each review, if they reviewed, they cannot review again.
 	-Sorting Options
 		-Helpful, Newest, Relevant
 
@@ -82,3 +82,11 @@ npm i -g yarn
 To begin (after installing yarn); Type ( yarn install ) into the terminal and hit enter; This will install all the dependenices.
 
 Afterwards to begin devlopment run (yarn start) then run (yarn dev) to see in the output in local host 300.
+
+### Jest Installation
+run "npx jest --init"
+typescript: no
+choose test environment: jsdom
+coverage reports: yes
+provider: babel
+auto clear mock calls: no
