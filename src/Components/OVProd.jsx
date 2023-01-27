@@ -7,7 +7,7 @@ const axios = require('axios');
 function OVProd (props) {
   console.log(props);
 
-  const [currStyles, changeStyles] = useState([]);
+
 
   function handleClick () {
     axios.post('', {
