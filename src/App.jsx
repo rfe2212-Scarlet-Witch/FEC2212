@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './index.scss';
 import Overview from './Components/Overview.jsx';
 import QnA from './Components/QnA/QandA.jsx'
+import RnR from './Components/RnR/RnR.jsx'
 //import for reviews
 const axios = require('axios');
 
