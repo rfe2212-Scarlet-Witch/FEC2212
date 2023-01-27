@@ -4,7 +4,9 @@ function OVStyle (props) {
 
   return (
     <div>
-      {props.style.name}
+      Style: {props.style.name}
+      <div></div>
+      Price: {props.style.original_price}
     </div>
   )
 }
