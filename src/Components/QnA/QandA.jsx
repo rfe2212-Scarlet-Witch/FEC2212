@@ -1,8 +1,9 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
+import axios from 'axios';
 const QnA = () => {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div onClick={() => {setCount(count + 1)}}> This is where QnA will go. {count} </div>
