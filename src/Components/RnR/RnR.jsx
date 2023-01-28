@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import config from '../../../config.js';
+import Stars from './Stars.jsx'
 const axios = require('axios');
 
 var RnR = (props) => {
   var currentProduct = props.currProd;
-
-  const [currReviews, setCurrReviews] = useState([])
-
+  var currReviews = props.currReviews;
 
 
 
   return (
     <>
-    <div>{console.log('this is the Reviews Data', currReviews)}</div>
+    <div>Ratings & Reviews</div>
+    <Stars allReviews={currReviews}/>
     </>
   )
 }

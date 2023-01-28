@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express();
-const { getProductInfo } = require('../helperFunc/getProductInfo.js');
+const { getProductInfo, getProductReviews } = require('../helperFunc/getProductInfo.js');
 
 
 app.use(express.static('public'));
@@ -9,6 +9,19 @@ app.use(express.json());
 app.post('/', function (req, res) {
   console.log('req', req.body.term);
   let productData = getProductInfo(req.body.term);
+  productData.then((data) => {
+    // console.log(data.data);
+    res.status(201).send(data.data);
+  }).catch((err) => {
+    console.log('error communicating with API', err);
+  })
+
+})
+
+app.post('/revs', function (req, res) {
+  console.log('req', req.body.term);
+  console.log('revs reqs', req.body.product_id)
+  let productData = getProductReviews(req.body.term, req.body.product_id);
   productData.then((data) => {
     // console.log(data.data);
     res.status(201).send(data.data);
