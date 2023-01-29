@@ -1,10 +1,45 @@
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #1f1f1f;
-  color: #f1f1f1;
+  margin-top: 0px;
+  margin-right: 150px;
+  margin-left: 150px;
+  padding: 0px;
+  background-color: white;
 }
 
 h1 {
   font-family: 'Prototype Regular';
+}
+
+#Overview {
+  outline-color: red;
+  outline-width: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+#Styles {
+  background-color: #800080;
+  width: 400px;
+}
+
+#image-background{
+  background-color: rgb(217, 217, 217);
+  width: 600px
+}
+
+#style-photo{
+  width: 100px;
+  height:100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%
+}
+
+.text {
+  color: black
 }
