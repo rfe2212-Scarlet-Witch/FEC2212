@@ -12,7 +12,7 @@ function App() {
   const [currProd, changeProd] = useState([]);//current product that is displayed
   const [currStyles, changeStyles] = useState([]); //all styles for the currently rendered product
   const [displayedStyle, changeDisplayedStyle] = useState({photos: [{}]});//currently displayed style inside the image gallery  const [currReviews, setCurrReviews] = useState([]);
-
+  const [currReviews, setCurrReviews] = useState([]);
 
   useEffect(() => {
     axios.post('', {
