@@ -2,28 +2,37 @@ import React, {useEffect, useState} from 'react';
 import config from '../../../config.js';
 import {Rating} from 'react-simple-star-rating'
 import ProgressBar from "@ramonak/react-progress-bar";
+import LinearProgress from '@mui/material/LinearProgress'
 
 
-var LoadedBars = () => {
+
+var LoadedBars = (props) => {
+  var five = props.five;
+  var four = props.four;
+  var three = props.three;
+  var two = props.two;
+  var one = props.one
 
 
   return (
     <>
-    <span>Five Stars</span>
-        <ProgressBar className={"fiveProgressBar"} completed={five} isLabelVisible={false} borderRadius={'0px'} bgColor={'#808080'} height={'20px'}/>
+    <span>
+      <div>Five Stars</div>
+        <LinearProgress value={five} variant={'determinate'}/>
       <div>{five}</div>
-      <span>Four Stars</span>
-      <ProgressBar className={"fiveProgressBar"} completed={four} isLabelVisible={false} borderRadius={'0px'} bgColor={'#808080'} height={'20px'}/>
+      <div>Four Stars</div>
+      <LinearProgress value={four} variant={'determinate'}/>
       <div>{four}</div>
-      <span>Three Stars</span>
-      <ProgressBar className={"fiveProgressBar"} completed={three} isLabelVisible={false} borderRadius={'0px'} bgColor={'#808080'} height={'20px'}/>
+      <div>Three Stars</div>
+      <LinearProgress value={three} variant={'determinate'}/>
       <div>{three}</div>
-      <span>Two Stars</span>
-      <ProgressBar className={"fiveProgressBar"} completed={two} isLabelVisible={false} borderRadius={'0px'} bgColor={'#808080'} height={'20px'}/>
+      <div>Two Stars</div>
+      <LinearProgress value={two} variant={'determinate'}/>
       <div>{two}</div>
-      <span>One Stars</span>
-      <ProgressBar className={"fiveProgressBar"} completed={one} isLabelVisible={false} borderRadius={'0px'} bgColor={'#808080'} height={'20px'}/>
+      <div>One Stars</div>
+      <LinearProgress value={one} variant={'determinate'}/>
       <div>{one}</div>
+      </span>
     </>
   )
 }
