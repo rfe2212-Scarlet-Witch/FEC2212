@@ -11,7 +11,8 @@ function App() {
   const [currProducts, changeProducts] = useState([]);//current array
   const [currProd, changeProd] = useState([]);//current product that is displayed
   const [currStyles, changeStyles] = useState([]); //all styles for the currently rendered product
-  const [displayedStyle, changeDisplayedStyle] = useState({photos: [{}]});//currently displayed style inside the image gallery
+  const [displayedStyle, changeDisplayedStyle] = useState({photos: [{}]});//currently displayed style inside the image gallery  const [currReviews, setCurrReviews] = useState([]);
+  const [currReviews, setCurrReviews] = useState([]);
 
   useEffect(() => {
     axios.post('', {
@@ -35,10 +36,26 @@ function App() {
       });
 
 
+      axios.post('/revs', {
+        term: '/reviews/',
+        product_id: data.data[0].id
+      })
+      .then((data) => {
+        // console.log('this is the REVIEWS data', data.data);
+        setCurrReviews(data.data.results)
+      })
+      .catch((err) => {
+        throw err;
+      });
+
+      //this is the array of products received upon page render
+      // console.log('this is the data', data.data);
     })
     .catch((err) => {
-      console.log('axios post for product data failed', err);
+      // console.log('axios post for product data failed', err);
     });
+
+
   }, []);
 
 
@@ -49,6 +66,7 @@ function App() {
       <Overview displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
       <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
       <div className="review-comp">To be used by review component</div>
+      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews}/>
     </div>
   );
 }

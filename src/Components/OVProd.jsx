@@ -14,11 +14,11 @@ function OVProd (props) {
       term: `/products/${props.product.id}/styles`,
     })
     .then((data) => {
-      console.log('this is the data', data.data)
+      // console.log('this is the data', data.data)
       changeStyles(data.data.results);
     })
     .catch((err) => {
-      console.log('axios post for product data failed', err);
+      // console.log('axios post for product data failed', err);
     });
 
   }
