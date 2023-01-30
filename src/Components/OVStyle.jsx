@@ -10,12 +10,6 @@ function OVStyle (props) {
   return (
     <div id={props.id}>
       <img id='style-photo' src={props.style.photos[0].thumbnail_url} onClick={handleClick}></img>
-      <div>
-      Style: {props.style.name}
-      </div>
-      <div>
-      Price: {props.style.sale_price || props.style.original_price}
-      </div>
     </div>
   )
 }

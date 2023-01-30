@@ -11,7 +11,7 @@ function App() {
   const [currProducts, changeProducts] = useState([]);//current array
   const [currProd, changeProd] = useState([]);//current product that is displayed
   const [currStyles, changeStyles] = useState([]); //all styles for the currently rendered product
-  const [displayedStyle, changeDisplayedStyle] = useState({photos: [{}]});//currently displayed style inside the image gallery  const [currReviews, setCurrReviews] = useState([]);
+  const [displayedStyle, changeDisplayedStyle] = useState({photos: [{}]});//currently displayed style inside the image gallery
   const [currReviews, setCurrReviews] = useState([]);
 
   useEffect(() => {
@@ -19,17 +19,19 @@ function App() {
       term: '/products',
     })
     .then((data) => {
+      console.log('current product', data.data);
 
       changeProducts(data.data);//update the current products
-      changeProd(data.data[0]);//update the currently displayed product
+      changeProd(data.data[0]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
         term: `/products/${data.data[0].id}/styles`,
       })
       .then((data) => {
+        console.log('current style', data.data.results);
         changeStyles(data.data.results); //update the current styles for the currently displayed product
-        changeDisplayedStyle(data.data.results[0]); //update the currently displayed style
+        changeDisplayedStyle(data.data.results[0]); //update the currently displayed style, defaults to first on page load.
       })
       .catch((err) => {
         console.log('axios post for product data failed', err);

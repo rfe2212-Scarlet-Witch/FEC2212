@@ -11,7 +11,7 @@ var Stars = (props) => {
 
 
   var allReviews = props.allReviews;
-  console.log('In Stars Data: ', allReviews);
+
 
   var calculateStars = () => {
     var sumStars = 0;
