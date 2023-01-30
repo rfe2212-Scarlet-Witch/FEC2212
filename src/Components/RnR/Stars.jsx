@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import config from '../../../config.js';
 import Rating from '@mui/material/Rating'
 import LoadedBars from './LoadedBars.jsx'
-// import styled from '@emotion/styled'
 
 
 
@@ -11,7 +10,7 @@ var Stars = (props) => {
 
 
   var allReviews = props.allReviews;
-  console.log('In Stars Data: ', allReviews);
+  // console.log('In Stars Data: ', allReviews);
 
   var calculateStars = () => {
     var sumStars = 0;

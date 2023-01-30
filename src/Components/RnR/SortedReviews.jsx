@@ -12,7 +12,9 @@ var SortedReviews = (props) => {
   var toRender =[];
   var helpfulFirst = [];
   // console.log(props.sort)
-  var [count, setcount] = useState(0);
+  var [count, setcount] = useState(2);
+  var relevantFirst = [];
+  var newestFirst=[];
 
   if (props.sort === 'Helpful') {
     for(var i = 0; i < count && i < allReviews.length; i++) {
@@ -23,10 +25,18 @@ var SortedReviews = (props) => {
       }
     }
     toRender = helpfulFirst;
+  } else if (props.sort === 'Newest') {
+    newestFirst = [...allReviews];
+    newestFirst.sort((a,b) => {
+      return a.date < b.date
+    })
+    for (var i = 0; i < newestFirst.length && i < count; i++) {
+      toRender.push(newestFirst[i]);
+    }
   }
   // console.log(toRender);
 
-  var showMoreHelpful = () => {
+  var showMore = () => {
     setcount(count + 2);
   }
 
@@ -34,11 +44,10 @@ var SortedReviews = (props) => {
     <>
     <div>
     {toRender.map((render) => (
-      <ListSubheader>
         <ListItem className="ReviewTile"><ReviewTile renderThis={render}/></ListItem>
-      </ListSubheader>))
+     ))
     }
-    <button onClick={props.sort === 'Helpful' ? showMoreHelpful : null}>Show More</button>
+    <button onClick={showMore}>Show More</button>
     </div>
     </>
 

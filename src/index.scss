@@ -83,9 +83,22 @@ h1 {
 
 .reviewTime {
   // flex-direction: row;
+  display: flex;
   border: 1px solid black;
   // justify-content: space-evenly;
   // padding-right: 100%;
+  justify-content: space-between;
+  // max-width: 100%;
+}
+
+// .RightSideData {
+//   display: flex;
+//   justify-content: flex-end;
+// }
+
+.reviewImage {
+  max-width: 30%;
+  max-height: 30%;
 }
 
 

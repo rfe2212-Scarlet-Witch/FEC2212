@@ -17,8 +17,9 @@ var ReviewsView = (props) => {
       <div>
         {currReviews.length} reviews, sorted by
           <select value={sortBy} onChange={(e) => {handleSort(e)}}>
-            <option value="relevance">Relevance</option>
+            <option value="Newest">Newest</option>
             <option value="Helpful">Helpful</option>
+            <option value="Relevant">Relevant</option>
           </select>
           <SortedReviews sort={sortBy} allReviews={props.allReviews} sortBy={sortBy}/>
       </div>
