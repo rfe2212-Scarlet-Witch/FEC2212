@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import config from '../../../config.js';
-import {Rating} from 'react-simple-star-rating'
-import ProgressBar from "@ramonak/react-progress-bar";
 import LinearProgress from '@mui/material/LinearProgress'
 
 
