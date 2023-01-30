@@ -1,12 +1,18 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import axios from 'axios';
+import AnswerList from './AnswerList.jsx'
+import QuestionList from './QuestionList.jsx'
+
 const QnA = () => {
 
-  const [count, setCount] = useState(0);
+
 
   return (
-    <div onClick={() => {setCount(count + 1)}}> This is where QnA will go. {count} </div>
+    <div>
+      <QuestionList />
+      <AnswerList />
+    </div>
   )
 };
 
