@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import config from '../../../config.js';
-import {Rating} from 'react-simple-star-rating'
+import Rating from '@mui/material/Rating'
 import LoadedBars from './LoadedBars.jsx'
+// import styled from '@emotion/styled'
+
+
 
 
 var Stars = (props) => {
@@ -64,14 +67,15 @@ var Stars = (props) => {
 
   return (
     <>
-      <span>Average Stars</span>
-      <div>
-        <div>{averageStars}</div>
-        <Rating initialValue={averageStars} allowFraction={true} readonly={true}/>
-      </div>
-      <span>Average Recommend</span>
-      <div>{averageRec + '%' + ' of reviewers recommend this product'}</div>
-      <LoadedBars/>
+        <div>
+          {averageStars}
+            <div>
+              {averageRec + '%' + ' of reviewers recommend this product'}
+            </div>
+          <Rating  readOnly={true} precision={1/4} value={averageStars} size={'small'}/>
+          <LoadedBars one={one} two={two} three={three} four={four} five={five}/>
+        </div>
+
     </>
   )
 }
