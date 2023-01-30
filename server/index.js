@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express();
-const { getProductInfo, getProductReviews } = require('../helperFunc/getProductInfo.js');
+const { getProductInfo, getProductReviews , getProductQuestions} = require('../helperFunc/getProductInfo.js');
 
 
 app.use(express.static('public'));
@@ -29,6 +29,14 @@ app.post('/revs', function (req, res) {
     console.log('error communicating with API', err);
   })
 
+})
+
+app.post('/questions', (req, res) => {
+  getProductQuestions(req.body.term, req.body.product_id)
+  .then((data) => {
+    res.send(data.data);
+  })
+  .catch((err) => {})
 })
 
 let port = 1337;
