@@ -5,7 +5,9 @@ import SortedReviews from './SortedReviews.jsx'
 
 var ReviewsView = (props) => {
   var currReviews = props.allReviews;
-  var [sortBy, setSortBy] = useState('relevance')
+  var filters = props.filters;
+  var setFilters = props.setFilters;
+  var [sortBy, setSortBy] = useState('Newest')
 
   var handleSort = (e) => {
     console.log(e.target.value);
@@ -21,7 +23,10 @@ var ReviewsView = (props) => {
             <option value="Helpful">Helpful</option>
             <option value="Relevant">Relevant</option>
           </select>
-          <SortedReviews sort={sortBy} allReviews={props.allReviews} sortBy={sortBy}/>
+          Filtered By: {filters.map((elem) => (<li>{elem}</li>))}
+          {filters.length > 0 ? <button onClick={() => {setFilters([])}}>Reset Filters</button> : <div></div>}
+
+          <SortedReviews sort={sortBy} allReviews={props.allReviews} sortBy={sortBy} filters={filters}/>
       </div>
     </>
   )

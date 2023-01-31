@@ -12,7 +12,8 @@ function App() {
   const [currProd, changeProd] = useState([]);//current product that is displayed
   const [currStyles, changeStyles] = useState([]); //all styles for the currently rendered product
   const [displayedStyle, changeDisplayedStyle] = useState({photos: [{}]});//currently displayed style inside the image gallery  const [currReviews, setCurrReviews] = useState([]);
-  const [currReviews, setCurrReviews] = useState([]);
+  const [currReviews, setCurrReviews] = useState([]); //All reviews for the current product
+  const [currMeta, setCurrMeta] = useState([]);
   const [currQuestions, setCurrQuestions] = useState([]);
 
   useEffect(() => {
@@ -58,6 +59,18 @@ function App() {
       .catch((err) => {
         throw err;
       });
+      axios.post('/revs', {
+        term: '/reviews/meta',
+        product_id: data.data[0].id
+      })
+      .then((data) => {
+        // console.log('this is the REVIEWS data', data.data);
+        setCurrMeta(data.data);
+        // console.log('Meta Results', data.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
 
       //this is the array of products received upon page render
       // console.log('this is the data', data.data);
@@ -78,7 +91,7 @@ function App() {
       <Overview displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
       <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeQuestion={setCurrQuestions} currQuestion={currQuestions} changeProducts={changeProducts}/>
       <div className="review-comp">To be used by review component</div>
-      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews}/>
+      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta}/>
     </div>
   );
 }

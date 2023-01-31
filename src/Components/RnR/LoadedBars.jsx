@@ -5,30 +5,45 @@ import LinearProgress from '@mui/material/LinearProgress'
 
 
 var LoadedBars = (props) => {
-  var five = props.five;
-  var four = props.four;
-  var three = props.three;
-  var two = props.two;
-  var one = props.one
+  var filters = props.filters;
+  var setFilters = props.setFilters;
+  var five = props.five || 0;
+  var four = props.four || 0;
+  var three = props.three || 0;
+  var two = props.two || 0;
+  var one = props.one || 0;
+  var sum = props.sum || 1;
 
+  var setFilter = (star) => {
+    if (filters.includes(star)) {
+      var removeFrom = [...filters];
+      var ind = removeFrom.indexOf(star);
+      removeFrom.splice(ind, 1);
+      setFilters(removeFrom);
+    } else {
+      var currentFilters = [...filters];
+      currentFilters.push(star);
+      setFilters(currentFilters);
+    }
+  }
 
   return (
     <>
     <span>
-      <div>Five Stars</div>
-        <LinearProgress value={five} variant={'determinate'}/>
+      <div onClick={() => {setFilter('Five Stars')}}>Five Stars</div>
+        <LinearProgress value={(five/sum) * 100} variant={'determinate'}/>
       <div>{five}</div>
-      <div>Four Stars</div>
-      <LinearProgress value={four} variant={'determinate'}/>
+      <div onClick={() => {setFilter('Four Stars')}}>Four Stars</div>
+      <LinearProgress value={(four/sum) * 100} variant={'determinate'}/>
       <div>{four}</div>
-      <div>Three Stars</div>
-      <LinearProgress value={three} variant={'determinate'}/>
+      <div onClick={() => {setFilter('Three Stars')}}>Three Stars</div>
+      <LinearProgress value={(three/sum) * 100} variant={'determinate'}/>
       <div>{three}</div>
-      <div>Two Stars</div>
-      <LinearProgress value={two} variant={'determinate'}/>
+      <div onClick={() => {setFilter('Two Stars')}}>Two Stars</div>
+      <LinearProgress value={(two/sum) * 100} variant={'determinate'}/>
       <div>{two}</div>
-      <div>One Stars</div>
-      <LinearProgress value={one} variant={'determinate'}/>
+      <div onClick={() => {setFilter('One Stars')}}>One Stars</div>
+      <LinearProgress value={(one/sum) * 100 } variant={'determinate'}/>
       <div>{one}</div>
       </span>
     </>
