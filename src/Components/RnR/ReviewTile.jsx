@@ -13,7 +13,7 @@ today = format((today), 'MMMM dd, yyyy')
 
 
 
-// console.log(renderThis);
+//
   return (
     <>
     <div>
