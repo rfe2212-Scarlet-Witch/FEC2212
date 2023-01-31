@@ -1,14 +1,16 @@
 import React from 'react';
-import Question from './Question.jsx'
+import Question from './Question.jsx';
+import {useState} from 'react';
 
 const QuestionList = ({qs}) => {
-  console.log(qs)
+  let [questionsLength, setQuestionsLength] = useState (3);
+
   let sortedQs = qs.sort((a,b) => {return b.question_helpfulness - a.question_helpfulness})
-  console.log(sortedQs)
+
   return (
     <div>
-      {sortedQs.map((q) => {
-        return <Question q={q} key={q.question_id} />
+      {sortedQs.map((q, index) => {
+        return <Question q={q} key={q.question_id} index={index} length={questionsLength}/>
       })}
     </div>
   )

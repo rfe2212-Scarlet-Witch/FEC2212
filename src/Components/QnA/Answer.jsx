@@ -23,7 +23,7 @@ const Answer = ({ans, index, length}) => {
       <span className="answerUser">
         by {ans.answerer_name},  {mo} |
       </span>
-      <Helpful ansId={ans.id}
+      <Helpful id={ans.id}
  count={ans.helpfulness} type="answers"/>
       <Report id={ans.id} type="answers"/>
     </>
