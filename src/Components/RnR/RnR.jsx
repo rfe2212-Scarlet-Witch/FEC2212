@@ -26,7 +26,7 @@ var RnR = (props) => {
             </div>
             <div className="ReviewsRight">
               <ReviewsView allReviews={currReviews} filters={filters} setFilters={setFilters}/>
-              <div>``
+              <div>
                 <AddReview title={'Add Review'}/>
               </div>
             </div>

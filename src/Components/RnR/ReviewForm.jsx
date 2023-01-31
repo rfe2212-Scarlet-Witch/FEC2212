@@ -13,7 +13,7 @@ var ReviewForm = (props) => {
 
 
   return (
-    <>
+    <div>
       <Rating/>
       <TextField
         margin="dense"
@@ -24,7 +24,7 @@ var ReviewForm = (props) => {
       />
 
 
-    </>
+    </div>
   )
 }
 

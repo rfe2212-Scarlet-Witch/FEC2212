@@ -31,19 +31,21 @@ var LoadedBars = (props) => {
     <>
     <span>
       <div onClick={() => {setFilter('Five Stars')}}>Five Stars</div>
-        <LinearProgress value={(five/sum) * 100} variant={'determinate'}/>
+        <div className='fiveBar'>
+          <LinearProgress  id='fiveBarProgress' value={(five/sum) * 100} variant={'determinate'} />
+        </div>
       <div>{five}</div>
       <div onClick={() => {setFilter('Four Stars')}}>Four Stars</div>
-      <LinearProgress value={(four/sum) * 100} variant={'determinate'}/>
+      <LinearProgress id='fourBarProgress' value={(four/sum) * 100} variant={'determinate'}/>
       <div>{four}</div>
       <div onClick={() => {setFilter('Three Stars')}}>Three Stars</div>
-      <LinearProgress value={(three/sum) * 100} variant={'determinate'}/>
+      <LinearProgress id='threeBarProgress' value={(three/sum) * 100} variant={'determinate'}/>
       <div>{three}</div>
       <div onClick={() => {setFilter('Two Stars')}}>Two Stars</div>
-      <LinearProgress value={(two/sum) * 100} variant={'determinate'}/>
+      <LinearProgress id='twoBarProgress' value={(two/sum) * 100} variant={'determinate'}/>
       <div>{two}</div>
       <div onClick={() => {setFilter('One Stars')}}>One Stars</div>
-      <LinearProgress value={(one/sum) * 100 } variant={'determinate'}/>
+      <LinearProgress id='oneBarProgress' value={(one/sum) * 100 } variant={'determinate'}/>
       <div>{one}</div>
       </span>
     </>

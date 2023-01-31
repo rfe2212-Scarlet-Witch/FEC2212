@@ -170,25 +170,28 @@ h1 {
   // padding-right: 20px;
   // justify-content: space-evenly;
   // font-family:cursive;
+  justify-content: space-evenly;
 }
 
 .ReviewsRight {
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right:20px;
-  max-width: 80%;
-  max-height: 400px;
+  padding-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-right:5%;
+  max-width: 70%;
+  max-height: 450px;
   overflow: scroll;
+  border: 1px solid black;
 
 }
 
 .ReviewsLeft {
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right:20px;
-  max-width: 20%;
+  padding-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-right:5%;
+  max-width: 40%;
+  border: 1px solid black
 }
 
 .ReviewTile {
@@ -214,9 +217,74 @@ h1 {
 // }
 
 .reviewImage {
-  max-width: 30%;
-  max-height: 30%;
+  max-width: 100px;
+  max-height: 100px;
 }
+
+#fiveBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#fourBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#threeBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#twoBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#oneBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+
+#addReviewModal {
+  width: 80%;
+  border: 1px solid black;
+}
+
+.ScaleOne {
+  display: 'flex';
+  color: 'grey';
+  width: '360px';
+  height: '30px';
+  flex-direction: 'row';
+  border: "2px solid black";
+  justify-content: 'space-evenly'
+}
+
+.ScaleOne .BarOne {
+  position: 'relative';
+  width: '300px';
+  height: '30px';
+  border: '1px solid red';
+
+}
+
+.ScaleOne .BarTwo {
+  position: 'relative';
+  width: '120px';
+  height: '30px';
+  border: '1px solid red';
+
+}
+.ScaleOne .BarThree {
+  position: 'relative';
+  width: '120px';
+  height: '30px';
+  border: '1px solid red';
+
+}
+
 
 
 
