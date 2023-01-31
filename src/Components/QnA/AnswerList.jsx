@@ -1,9 +1,6 @@
 import React from 'react';
 import Answer from './Answer.jsx';
-
-//GET /qa/questions/:question_id/answers
-// Parameters
-
+import {useState} from 'react';
 // Parameter	Type	Description
 // question_id	integer	Required ID of the question for wich answers are needed
 // Query Parameters
@@ -11,45 +8,23 @@ import Answer from './Answer.jsx';
 // Parameter	Type	Description
 // page	integer	Selects the page of results to return. Default 1.
 // count	integer	Specifies how many results per page to return. Default 5.
-const AnswerList = () => {
-  const list = {
-    "question": "1",
-    "page": 0,
-    "count": 5,
-    "results": [
-      {
-        "answer_id": 8,
-        "body": "What a great question!",
-        "date": "2018-01-04T00:00:00.000Z",
-        "answerer_name": "metslover",
-        "helpfulness": 8,
-        "photos": [],
-      },
-      {
-        "answer_id": 5,
-        "body": "Something pretty durable but I can't be sure",
-        "date": "2018-01-04T00:00:00.000Z",
-        "answerer_name": "metslover",
-        "helpfulness": 5,
-        "photos": [{
-            "id": 1,
-            "url": "urlplaceholder/answer_5_photo_number_1.jpg"
-          },
-          {
-            "id": 2,
-            "url": "urlplaceholder/answer_5_photo_number_2.jpg"
-          },
-          // ...
-        ]
-      },
-      // ...
-    ]
+
+// sort answer list here ?
+// should be sorted to have seller on top and then sorted by helpfulness
+const AnswerList = ({ansList}) => {
+  let [ansLength, setAnsLength] = useState(2);
+  let sortedList = ansList.sort((a,b) => {return b.helpfulness - a.helpfulness})
+  const clickHandler = () => {
+    setAnsLength(4);
   }
 
   return (
-    <div>
-      <Answer />
-    </div>
+    <span>
+      A:  {sortedList.map((item, index) => {
+        return <Answer ans={item} key={item.id} index={index} className="answer" length={ansLength}/>
+      })}
+      {sortedList.length < 3 ? null : <button onClick={() => {clickHandler()}}>More Answers</button>}
+    </span>
   )
 }
 
