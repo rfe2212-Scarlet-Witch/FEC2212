@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express();
-const { getProductInfo, getProductReviews , getProductQuestions} = require('../helperFunc/getProductInfo.js');
+const { getProductInfo, getProductReviews , getProductQuestions, updatePuts} = require('../helperFunc/getProductInfo.js');
 
 
 app.use(express.static('public'));
@@ -36,7 +36,15 @@ app.post('/questions', (req, res) => {
   .then((data) => {
     res.send(data.data);
   })
-  .catch((err) => {})
+  .catch((err) => {res.send(err)})
+})
+
+app.put('/puts', (req, res) => {
+  updatePuts(req.body.term)
+  .then((data) => {
+    res.send('sent')
+  })
+  .catch((err) => {console.log(err)})
 })
 
 let port = 1337;

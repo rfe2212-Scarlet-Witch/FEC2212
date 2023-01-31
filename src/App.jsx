@@ -41,17 +41,6 @@ function App() {
         console.log('axios post for product data failed', err);
       });
 
-      axios.post('/questions', {
-        term: '/qa/questions/',
-         product_id: data.data[0].id
-      })
-      .then((data) => {
-        setCurrQuestions(data.data.results[0])
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
       axios.post('/revs', {
         term: '/reviews/',
         product_id: data.data[0].id
@@ -87,13 +76,22 @@ function App() {
 
   }, []);
 
-
+  useEffect(() => {
+    if(!Array.isArray(currProd)){
+      axios.post('/questions', {
+        term: '/qa/questions',
+        product_id: currProd.id
+      })
+      .then((data) => {setCurrQuestions(data.data.results)})
+      .catch((err) => console.log(err))
+    }
+  }, [currProd])
 
 
   return (
     <div className="app">
       <Overview displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
-      <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeQuestion={setCurrQuestions} currQuestion={currQuestions} changeProducts={changeProducts}/>
+      <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeQuestion={setCurrQuestions} currQuestions={currQuestions} changeProducts={changeProducts}/>
       <div className="review-comp">To be used by review component</div>
       <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta}/>
     </div>
