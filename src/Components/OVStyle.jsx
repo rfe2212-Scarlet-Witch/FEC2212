@@ -4,6 +4,7 @@ function OVStyle (props) {
 
   function handleClick () {
     props.changeDisplayedStyle(props.currStyles[props.id])
+    props.changeDisplayedPhoto(props.currStyles[props.id].photos[0].thumbnail_url)
   }
 
 
@@ -15,5 +16,3 @@ function OVStyle (props) {
 }
 
 export default OVStyle;
-
-//width='100' height='150'

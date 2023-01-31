@@ -1,3 +1,6 @@
+// * {
+//   border: 1px  black solid;
+// }
 body {
   margin-top: 0px;
   margin-right: 150px;
@@ -14,18 +17,19 @@ h1 {
 #header {
   background-color: grey;
   height: 75px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 .currentProduct {
   display: flex;
 }
 
-#Overview {
-  outline-color: red;
-  outline-width: 5px;
-  background-color: rgb(255, 255, 255);
-}
 
+
+.text {
+  color: rgb(90, 90, 90);
+  padding: 10px;
+  font-weight: 200;
+}
 
 #Styles {
   background-color: #800080;
@@ -34,7 +38,88 @@ h1 {
 
 #image-container{
   background-color: rgb(217, 217, 217);
-  width: 600px
+  height: 600px;
+  width: 700px;
+  justify-content: center;
+}
+
+#image-carousel {
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-bottom: 20px;
+  position: absolute;
+  height: 500px;
+  width: 75px;
+  outline-width: 50px;
+}
+
+.carousel-image {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 50%;
+}
+
+
+.carousel-image:hover {
+  opacity: 1;
+}
+
+#image{
+  object-fit: cover;
+  height: 600px;
+  cursor: -moz-zoom-in;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  max-width: 700px;
+}
+
+.prodInfo {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  padding-left: 20px;
+}
+
+#stylePhotos {
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+#category {
+  padding-top: 20px;
+  font-weight: 300;
+}
+
+#prodName {
+  font-size: xx-large;
+  color: rgb(90, 90, 90);
+}
+
+.price {
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+#prodPrice {
+  padding-top: 20px;
+}
+
+.productStyle {
+  display: flex;
+}
+
+#stylePointer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#styleName {
+  justify-content: right;
+  padding-top: 20px;
+  font-weight: 300;
 }
 
 #style-photo{
@@ -42,18 +127,38 @@ h1 {
   height: 75px;
   object-fit: cover;
   border-radius: 50%;
+  margin: 12px;
+}
+
+#select-size-container {
+  flex-wrap: wrap;
+  height: 50px;
+  width: 100%;
+  padding-top: 20px;
+  justify-content: space-between;
+}
+
+#select-size {
+  width: 50%;
+  height: 100%
+}
+
+#select-amount {
+  width: 30%;
+  height: 100%
+}
+
+#bag-heart {
+  outline-color: purple;
 }
 
 .center {
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 50%
 }
 
-.text {
-  color: black
-}
+
 
 .Reviews {
   display: flex;

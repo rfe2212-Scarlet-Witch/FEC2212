@@ -26,10 +26,10 @@ function OVProd (props) {
   return (
     <div className="currentProduct" id='OVProd'>
       <div currStyles={props.currStyles} >
-        <OVImages displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
+        <OVImages displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
       </div>
       <div>
-        <OVProdInfo currProd={props.currProd} changeProd={props.changeProd} currStyles={props.currStyles} changeStyles={props.changeStyles} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
+        <OVProdInfo displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} currProd={props.currProd} changeProd={props.changeProd} currStyles={props.currStyles} changeStyles={props.changeStyles} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
       </div>
     </div>
   )
@@ -37,24 +37,3 @@ function OVProd (props) {
 
 export default OVProd;
 
-{/* <div>
-        ------------------
-      </div>
-        Product category: {props.product.category}
-      <div>
-        ------------------
-      </div>
-        Product description: {props.product.description}
-      <div>
-        ------------------
-      </div>
-      Styles:
-        {currStyles.map((style, index) => {
-          return <OVStyle style={style} key={index}/>
-        })}
-      <div>
-        ------------------
-      </div>
-      <div>
-        ------------------
-</div> */}
