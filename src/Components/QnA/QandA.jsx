@@ -1,17 +1,15 @@
 import React from 'react';
 import {useState, useEffect} from 'react'
 import axios from 'axios';
-import AnswerList from './AnswerList.jsx'
 import QuestionList from './QuestionList.jsx'
 
-const QnA = () => {
+const QnA = ({currQuestions}) => {
 
-
-
+  //console.log(currQuestions)
+  //todo: add search bar
   return (
     <div>
-      <QuestionList />
-      <AnswerList />
+      <QuestionList qs={currQuestions}/>
     </div>
   )
 };
