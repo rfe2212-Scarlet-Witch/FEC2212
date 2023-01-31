@@ -1,6 +1,7 @@
 // * {
 //   border: 1px  black solid;
 // }
+
 body {
   margin-top: 0px;
   margin-right: 150px;
@@ -59,6 +60,10 @@ h1 {
   object-fit: cover;
   border-radius: 50%;
   opacity: 50%;
+}
+
+#selected-style-image {
+  opacity: 1;
 }
 
 
@@ -135,17 +140,21 @@ h1 {
   height: 50px;
   width: 100%;
   padding-top: 20px;
-  justify-content: space-between;
+  padding-bottom: 20px;
+
 }
 
 #select-size {
-  width: 50%;
-  height: 100%
+  width: 60%;
+  height: 100%;
+  flex: wrap;
+  justify-content: center;
 }
 
 #select-amount {
-  width: 30%;
-  height: 100%
+  width: 40%;
+  height: 100%;
+
 }
 
 #bag-heart {

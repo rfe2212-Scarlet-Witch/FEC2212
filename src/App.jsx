@@ -24,11 +24,11 @@ function App() {
       console.log('current products', data.data);
 
       changeProducts(data.data);//update the current products
-      changeProd(data.data[0]);//update the currently displayed product, defaults to first on page load.
+      changeProd(data.data[9]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[0].id}/styles`,
+        term: `/products/${data.data[9].id}/styles`,
       })
       .then((data) => {
         console.log('current styles for the selected product', data.data.results);

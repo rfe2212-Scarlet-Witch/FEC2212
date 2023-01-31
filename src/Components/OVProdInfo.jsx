@@ -1,14 +1,70 @@
-import React from 'react';
+import React, {useState} from 'react';
 import OVStyle from './OVStyle.jsx'
 
 function OVProdInfo (props) {
   let oldPrice = '   '
-  let currPrice = props.displayedStyle.original_price
+  let currPrice = `$${props.displayedStyle.original_price}`
   let textColor = 'black';
+
+  const [currAmountArray, setAmountArray] = useState([]);
+  const [currAmount, setAmount] = useState('');
+  const [currSize, setSize] = useState('');
+  const [disabled, changeDisabled] = useState(true);
+
+  let array = []
+
+  let size = '';
+  let amount = '';
+  // let disabled = false;
+
+
+  //handleClick for the add to bag button
+  const handleClick = () => {
+    console.log(currAmount);
+    console.log(currSize);
+  }
+  //handleChange for the quantity selector
+  const handleChangeAmount = (e) => {
+    amount = Number(e.target.value) + 1;
+    setAmount(amount);
+  }
+  //handleChange for the size selector
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    let i = 1;
+    array = [];
+    while (i <= fakeObj[e.target.value].quantity) {
+      array.push(i);
+      i++;
+    }
+    size = fakeObj[e.target.value].size;
+    console.log(fakeObj);
+    setSize(size);
+    setAmountArray(array);
+  }
+
   if (props.displayedStyle.sale_price) {
-    oldPrice = props.displayedStyle.original_price
-    currPrice = `${props.displayedStyle.sale_price}  `
+    oldPrice = `$${props.displayedStyle.original_price}`
+    currPrice = `$${props.displayedStyle.sale_price}  `
     textColor = 'red';
+  }
+
+    //set the font of the size selector based on disabled state
+    let font = 'OUT OF STOCK'
+    // if (disabled) {
+    //   font = 'OUT OF STOCK';
+    // } else {
+    //   font = 'SELECT SIZE';
+    // }
+
+  //set fakeObj to the displayed styles skus.
+  let fakeObj = props.displayedStyle.skus || {fakeKey: 'fakeValue'};
+  console.log('this is fakeObj, ', fakeObj)
+
+  //if the product has sizes availabe, remove disabled attribute and change the default text to SELECT SIZE
+  if (Object.keys(fakeObj).length > 1) {
+    document.getElementById("select-size").removeAttribute('disabled');
+    font = 'SELECT SIZE';
   }
 
 
@@ -51,12 +107,27 @@ function OVProdInfo (props) {
       </div>
 
       <div id="select-size-container">
-        <select id="select-size">SELECT SIZE</select>
-        <select id="select-amount">1</select>
+
+
+        <select onChange={handleChange} id="select-size" disabled>
+        <option  value="">{font}</option>
+        {Object.keys(fakeObj).map((key) => {
+          return <option  key={key} value={key}>{fakeObj[key].size}</option>
+        })}
+        </select>
+
+        <select onChange={handleChangeAmount} id="select-amount">
+          <option value=''>SELECT AMOUNT</option>
+          {currAmountArray.map((value, key) => {
+            return <option key={key} value={key}>{value}</option>
+          })}
+        </select>
+
+
       </div>
 
       <div id="bag-heart">
-        <button>ADD TO BAG</button>
+        <button onClick={handleClick}>ADD TO BAG</button>
         <button>heart</button>
       </div>
 
@@ -65,3 +136,20 @@ function OVProdInfo (props) {
 }
 
 export default OVProdInfo
+
+
+
+// OLD SIZE SELECTOR
+
+// {if (Object.keys(fakeObj).length > 1)
+//   (
+//    <select onChange={handleChangeAmount} id="select-amount" disabled>
+//       <option value=''>SELECT AMOUNT</option>
+//            {currAmountArray.map((value, key) => {
+//            return <option key={key} value={key}>{value}</option>
+//          })}
+//       </select>
+//  )
+
+
+// }
