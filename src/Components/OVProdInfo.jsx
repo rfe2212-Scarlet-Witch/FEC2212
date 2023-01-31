@@ -2,10 +2,12 @@ import React from 'react';
 import OVStyle from './OVStyle.jsx'
 
 function OVProdInfo (props) {
-  let salePrice = '   '
+  let oldPrice = '   '
+  let currPrice = props.displayedStyle.original_price
   let textColor = 'black';
   if (props.displayedStyle.sale_price) {
-    salePrice = `${props.displayedStyle.sale_price}  `
+    oldPrice = props.displayedStyle.original_price
+    currPrice = `${props.displayedStyle.sale_price}  `
     textColor = 'red';
   }
 
@@ -25,11 +27,11 @@ function OVProdInfo (props) {
 
       <strong className='price'>
         <del id='salePrice' >
-          {salePrice}
+          {oldPrice}
         </del>
 
         <strong id='prodPrice' style={{color: textColor}}>
-          {props.displayedStyle.original_price}
+          {currPrice}
         </strong>
       </strong>
 
