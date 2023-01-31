@@ -9,7 +9,7 @@ let getProductInfo = (term) => {
       Authorization: config.TOKEN,
     },
     params: {
-      count: 5
+      count: 15
     }
   };
 

@@ -6,7 +6,7 @@ import Rating from '@mui/material/Rating'
 var ReviewTile = (props) => {
 
 var renderThis = props.renderThis;
-console.log(renderThis);
+
   return (
     <>
     <div>

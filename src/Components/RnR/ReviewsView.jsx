@@ -8,7 +8,7 @@ var ReviewsView = (props) => {
   var [sortBy, setSortBy] = useState('relevance')
 
   var handleSort = (e) => {
-    console.log(e.target.value);
+
     setSortBy(e.target.value);
   }
   return (
