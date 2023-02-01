@@ -4,7 +4,7 @@ function OVCarouselImage (props) {
   let thing = null;
   let borderVar = '';
   let opacityVar  = '50%';
-  if (props.displayedPhoto === props.photo.thumbnail_url) {
+  if (props.displayedPhoto === props.photo.url) {
     borderVar = '2px black solid';
     opacityVar = '100%';
     thing = 'selected-style-image';
@@ -12,7 +12,7 @@ function OVCarouselImage (props) {
 
   return (
 
-      <img id={thing || props.id} onClick={() => {props.changeDisplayedPhoto(props.displayedStyle.photos[props.i].thumbnail_url)}} style={{border: borderVar}} className="carousel-image" src={props.photo.thumbnail_url}></img>
+      <img id={thing || props.id} onClick={() => {props.changeDisplayedPhoto(props.displayedStyle.photos[props.i].url)}} style={{border: borderVar}} className="carousel-image" src={props.photo.thumbnail_url}></img>
 
   )
 }

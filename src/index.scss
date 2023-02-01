@@ -37,6 +37,20 @@ h1 {
   width: 400px;
 }
 
+#left-arrow {
+  position: absolute;
+  bottom: 350px;
+  left: 275px;
+  font-size: x-large;
+}
+
+#right-arrow {
+  position: absolute;
+  bottom: 350px;
+  left: 705px;
+  font-size: x-large;
+}
+
 #image-container{
   background-color: rgb(217, 217, 217);
   height: 600px;

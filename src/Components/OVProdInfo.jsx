@@ -10,9 +10,9 @@ function OVProdInfo (props) {
   const [currAmount, setAmount] = useState('');
   const [currSize, setSize] = useState('');
   const [disabled, changeDisabled] = useState(true);
+  const [cart, setCart] = useState([]);
 
   let array = []
-
   let size = '';
   let amount = '';
   // let disabled = false;
@@ -20,9 +20,21 @@ function OVProdInfo (props) {
 
   //handleClick for the add to bag button
   const handleClick = () => {
-    console.log(currAmount);
-    console.log(currSize);
-  }
+    let newItem = {
+      product: props.currProd.name,
+      productSku: props.currProd.id,
+      styleSku: props.displayedStyle.style_id,
+      styleName: props.displayedStyle.name,
+      size: currSize,
+      quantity: currAmount,
+      thumbnail: props.displayedStyle.photos[0].thumbnail_url
+    }
+    let copyCart = cart;
+    copyCart.push(newItem);
+    setCart(copyCart);
+    }
+
+
   //handleChange for the quantity selector
   const handleChangeAmount = (e) => {
     amount = Number(e.target.value) + 1;
@@ -30,7 +42,7 @@ function OVProdInfo (props) {
   }
   //handleChange for the size selector
   const handleChange = (e) => {
-    console.log(e.target.value);
+
     let i = 1;
     array = [];
     while (i <= fakeObj[e.target.value].quantity) {
@@ -38,7 +50,6 @@ function OVProdInfo (props) {
       i++;
     }
     size = fakeObj[e.target.value].size;
-    console.log(fakeObj);
     setSize(size);
     setAmountArray(array);
   }
@@ -59,11 +70,12 @@ function OVProdInfo (props) {
 
   //set fakeObj to the displayed styles skus.
   let fakeObj = props.displayedStyle.skus || {fakeKey: 'fakeValue'};
-  console.log('this is fakeObj, ', fakeObj)
+
 
   //if the product has sizes availabe, remove disabled attribute and change the default text to SELECT SIZE
   if (Object.keys(fakeObj).length > 1) {
     document.getElementById("select-size").removeAttribute('disabled');
+    document.getElementById('select-amount').removeAttribute('disabled');
     font = 'SELECT SIZE';
   }
 
@@ -108,7 +120,6 @@ function OVProdInfo (props) {
 
       <div id="select-size-container">
 
-
         <select onChange={handleChange} id="select-size" disabled>
         <option  value="">{font}</option>
         {Object.keys(fakeObj).map((key) => {
@@ -116,7 +127,7 @@ function OVProdInfo (props) {
         })}
         </select>
 
-        <select onChange={handleChangeAmount} id="select-amount">
+        <select onChange={handleChangeAmount} id="select-amount" disabled>
           <option value=''>SELECT AMOUNT</option>
           {currAmountArray.map((value, key) => {
             return <option key={key} value={key}>{value}</option>
