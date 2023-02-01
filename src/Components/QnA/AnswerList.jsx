@@ -12,18 +12,20 @@ import {useState} from 'react';
 // sort answer list here ?
 // should be sorted to have seller on top and then sorted by helpfulness
 const AnswerList = ({ansList}) => {
-  let [ansLength, setAnsLength] = useState(2);
-  let sortedList = ansList.sort((a,b) => {return b.helpfulness - a.helpfulness})
-  const clickHandler = () => {
-    setAnsLength(4);
-  }
 
+  let [ansLength, setAnsLength] = useState(2);
+
+  let sortedList = ansList.sort((a,b) => {return b.helpfulness - a.helpfulness});
+
+  const clickHandler = () => {
+    setAnsLength(ansLength + 3);
+  }
   return (
     <span>
       A:  {sortedList.map((item, index) => {
         return <Answer ans={item} key={item.id} index={index} className="answer" length={ansLength}/>
       })}
-      {sortedList.length < 3 ? null : <button onClick={() => {clickHandler()}}>More Answers</button>}
+      { ansLength >= sortedList.length ? null : <button onClick={() => {clickHandler()}}>LOAD MORE ANSWERS</button>}
     </span>
   )
 }

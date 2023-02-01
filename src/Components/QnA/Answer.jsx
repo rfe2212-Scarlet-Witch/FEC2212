@@ -5,12 +5,18 @@ import moment from 'moment';
 import {useState} from 'react';
 
 const Answer = ({ans, index, length}) => {
+
   let photosArray = (imgArray) => {
-    let htl = imgArray.map((img) => {
-      return  <img src={img.url} key={img.id} />
+    let htl = imgArray.map((img, index) => {
+      return  <img src={img} key={index}
+      width="100px"
+      height="80px"
+      alt="User image upload"
+      />
     })
     return htl;
   };
+
   let mo = moment(ans.date).format("MMMM Do YYYY");
 
   return index > length ? null : (
@@ -18,14 +24,17 @@ const Answer = ({ans, index, length}) => {
       {index === 0 ? <span className="answerBody">{ans.body}</span> :
       <p className="answerBody">{ans.body}</p>}
       <div>
-        {photosArray(ans.photos)}
+        <span className="answerUser">
+          by {ans.answerer_name},  {mo} |
+        </span>
+        <Helpful id={ans.id}
+          count={ans.helpfulness}
+          type="answers"/> |
+        <Report id={ans.id} type="answers"/>
       </div>
-      <span className="answerUser">
-        by {ans.answerer_name},  {mo} |
-      </span>
-      <Helpful id={ans.id}
- count={ans.helpfulness} type="answers"/>
-      <Report id={ans.id} type="answers"/>
+          <div>
+            {photosArray(ans.photos)}
+          </div>
     </>
   )
 }
