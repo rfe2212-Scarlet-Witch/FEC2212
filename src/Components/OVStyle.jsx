@@ -4,7 +4,7 @@ function OVStyle (props) {
 
   function handleClick () {
     props.changeDisplayedStyle(props.currStyles[props.id])
-    props.changeDisplayedPhoto(props.currStyles[props.id].photos[0].thumbnail_url)
+    props.changeDisplayedPhoto(props.currStyles[props.id].photos[0].url)
   }
 
 
