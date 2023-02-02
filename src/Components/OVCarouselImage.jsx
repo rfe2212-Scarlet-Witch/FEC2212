@@ -10,9 +10,14 @@ function OVCarouselImage (props) {
     thing = 'selected-style-image';
   }
 
+
+  const handleClick = () => {
+    props.changeDisplayedPhoto(props.displayedStyle.photos[props.i].url);
+    props.changeIndexFunc(props.i);
+  }
   return (
 
-      <img id={thing || props.id} onClick={() => {props.changeDisplayedPhoto(props.displayedStyle.photos[props.i].url)}} style={{border: borderVar}} className="carousel-image" src={props.photo.thumbnail_url}></img>
+      <img id={thing || props.id} onClick={handleClick} style={{border: borderVar}} className="carousel-image" src={props.photo.thumbnail_url}></img>
 
   )
 }
