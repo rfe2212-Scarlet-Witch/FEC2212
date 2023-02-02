@@ -216,48 +216,76 @@ h1 {
 
 ////////////////////////////////
 
-.Reviews {
-  display: flex;
-  justify-content: row;
-  // max-width: 100px;
-  // max-height: 100px;
+
+
+
+
+////////////////////////////////
+
+// .RightSideData {
+//   display: flex;
+//   justify-content: flex-end;
+// }
+
+.reviewImage {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+#fiveBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#fourBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#threeBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#twoBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+#oneBarProgress{
+  height: 10px;
+  // border: 1px solid black;
+  // display: flex;
+}
+
+#addReviewModal {
+  width: 80%;
   border: 1px solid black;
-  // padding-left: 20px;
-  // padding-right: 20px;
-  // justify-content: space-evenly;
-  // font-family:cursive;
 }
 
-.ReviewsRight {
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right:20px;
-  max-width: 80%;
+
+#searchbar{
+    background-color: white;
+    background-image: url('./searchicon.png');
+    background-position: 98% 8px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    width: 65%;
+    min-width: 25%;
+    max-width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 
-.ReviewsLeft {
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right:20px;
-  max-width: 20%;
+.container {
+  max-height: 700px;
+  overflow: auto;
+  border-bottom: solid;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
-.ReviewTile {
-  border: 4px solid black;
-  position: sticky;
-  float: 3px;
-  max-width: 100%;
-
-}
-
-.reviewTime {
-  // flex-direction: row;
-  border: 1px solid black;
-  // justify-content: space-evenly;
-  // padding-right: 100%;
-}
 
 .container {
   max-height: 700px;

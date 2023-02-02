@@ -16,7 +16,7 @@ let getProductInfo = (term) => {
   return axios(options);
 }
 
-let getProductReviews = (term, product_id) => {
+let getProductReviews = (term, product_id, sortBy) => {
   // console.log('currently searching API at extension:', term)
   let options = {
     method: 'GET',
@@ -25,8 +25,26 @@ let getProductReviews = (term, product_id) => {
       Authorization: config.TOKEN,
     },
     params: {
-      count: 5,
-      product_id: product_id
+      count: 200,
+      product_id: product_id,
+      sort: sortBy
+    }
+  };
+
+  return axios(options);
+}
+
+let getProductReviewsMeta = (term, product_id) => {
+  // console.log('currently searching API at extension:', term)
+  let options = {
+    method: 'GET',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe${term}`,
+    headers: {
+      Authorization: config.TOKEN,
+    },
+    params: {
+      count: 200,
+      product_id: product_id,
     }
   };
 
@@ -64,5 +82,6 @@ let updatePuts = (term) => {
 
 module.exports.getProductInfo = getProductInfo;
 module.exports.getProductReviews = getProductReviews;
+module.exports.getProductReviewsMeta = getProductReviews;
 module.exports.getProductQuestions = getProductQuestions;
 module.exports.updatePuts = updatePuts;

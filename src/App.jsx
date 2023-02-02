@@ -13,8 +13,11 @@ function App() {
   const [currStyles, changeStyles] = useState([]); //all styles for the currently rendered product
   const [displayedStyle, changeDisplayedStyle] = useState({photos: [{}, {}, {}, {}, {}, {}]});//currently displayed style inside the image gallery
   const [displayedPhoto, changeDisplayedPhoto] = useState();
-  const [currReviews, setCurrReviews] = useState([]);
+  const [currReviews, setCurrReviews] = useState([]); //All reviews for the current product
+  const [currMeta, setCurrMeta] = useState([]);
   const [currQuestions, setCurrQuestions] = useState([]);
+  const [reviewsSort, setReviewsSort] = useState('relevant');
+  const [render, reRender] = useState([]);
 
   useEffect(() => {
     axios.post('', {
@@ -31,7 +34,7 @@ function App() {
         term: `/products/${data.data[0].id}/styles`,
       })
       .then((data) => {
-        //console.log('current styles for the selected product', data.data.results);
+        // //console.log('current styles for the selected product', data.data.results);
         changeStyles(data.data.results); //update the current styles for the currently displayed product
         changeDisplayedStyle(data.data.results[0]); //update the currently displayed style, defaults to first on page load.
         changeDisplayedPhoto(data.data.results[0].photos[0].url);
@@ -42,11 +45,24 @@ function App() {
 
       axios.post('/revs', {
         term: '/reviews/',
-        product_id: data.data[0].id
+        product_id: data.data[0].id,
+        sort: reviewsSort
       })
       .then((data) => {
         // console.log('this is the REVIEWS data', data.data);
         setCurrReviews(data.data.results)
+      })
+      .catch((err) => {
+        throw err;
+      });
+      axios.post('/revsMeta', {
+        term: '/reviews/meta',
+        product_id: data.data[0].id
+      })
+      .then((data) => {
+        // console.log('this is the REVIEWS data', data.data);
+        setCurrMeta(data.data);
+        // console.log('Meta Results', data.data);
       })
       .catch((err) => {
         throw err;
@@ -61,7 +77,7 @@ function App() {
 
 
 
-  }, []);
+  }, [reviewsSort]);
 
   useEffect(() => {
     if(!Array.isArray(currProd)){
@@ -78,7 +94,7 @@ function App() {
     <div className="app">
       <Overview displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
       <QnA currProd={currProd} currQuestions={currQuestions}/>
-      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews}/>
+      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
     </div>
   );
 }

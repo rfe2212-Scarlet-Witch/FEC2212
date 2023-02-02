@@ -1,13 +1,13 @@
 const express = require('express');
 let app = express();
-const { getProductInfo, getProductReviews , getProductQuestions, updatePuts} = require('../helperFunc/getProductInfo.js');
+const { getProductInfo, getProductReviews, getProductReviewsMeta , getProductQuestions, updatePuts} = require('../helperFunc/getProductInfo.js');
 
 
 app.use(express.static('public'));
 app.use(express.json());
 
 app.post('/', function (req, res) {
-  console.log('req', req.body.term);
+  // console.log('req', req.body.term);
   let productData = getProductInfo(req.body.term);
   productData.then((data) => {
     // console.log(data.data);
@@ -19,11 +19,20 @@ app.post('/', function (req, res) {
 })
 
 app.post('/revs', function (req, res) {
-  console.log('req', req.body.term);
-  console.log('revs reqs', req.body.product_id)
-  let productData = getProductReviews(req.body.term, req.body.product_id);
+  console.log('sort by', req.body.sort)
+  let productData = getProductReviews(req.body.term, req.body.product_id, req.body.sort);
   productData.then((data) => {
-    // console.log(data.data);
+    res.status(201).send(data.data);
+  }).catch((err) => {
+    console.log('error communicating with API', err);
+  })
+
+})
+
+app.post('/revsMeta', function (req, res) {
+  // console.log('sort by', req.body.sort)
+  let productData = getProductReviewsMeta(req.body.term, req.body.product_id);
+  productData.then((data) => {
     res.status(201).send(data.data);
   }).catch((err) => {
     console.log('error communicating with API', err);
@@ -40,6 +49,7 @@ app.post('/questions', (req, res) => {
 })
 
 app.put('/puts', (req, res) => {
+  console.log(req.body.term)
   updatePuts(req.body.term)
   .then((data) => {
     res.send('sent')
