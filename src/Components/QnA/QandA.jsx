@@ -1,15 +1,22 @@
 import React from 'react';
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 import axios from 'axios';
-import QuestionList from './QuestionList.jsx'
+import QuestionList from './QuestionList.jsx';
+import Search from './Search.jsx';
 
-const QnA = ({currQuestions}) => {
+const QnA = ({currQuestions, currProd}) => {
 
-  //console.log(currQuestions)
-  //todo: add search bar
+  const filter = currQuestions.filter( (question) => {
+    return Object.keys(question.answers).length > 0;
+  })
+
+  console.log(currProd.id, currProd.name)
+
   return (
     <div>
-      <QuestionList qs={currQuestions}/>
+      <h3>Questions & Answers</h3>
+      <Search />
+      <QuestionList qs={filter} prodId={currProd.id} prodName={currProd.name}/>
     </div>
   )
 };

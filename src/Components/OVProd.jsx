@@ -25,8 +25,8 @@ function OVProd (props) {
 
   return (
     <div className="currentProduct" id='OVProd'>
-      <div currStyles={props.currStyles} >
-        <OVImages displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
+      <div  >
+        <OVImages currStyles={props.currStyles} displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
       </div>
       <div>
         <OVProdInfo displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} currProd={props.currProd} changeProd={props.changeProd} currStyles={props.currStyles} changeStyles={props.changeStyles} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
