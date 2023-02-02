@@ -21,7 +21,7 @@ function App() {
       term: '/products',
     })
     .then((data) => {
-      console.log('current products', data.data);
+      //console.log('current products', data.data);
 
       changeProducts(data.data);//update the current products
       changeProd(data.data[0]);//update the currently displayed product, defaults to first on page load.
@@ -31,7 +31,7 @@ function App() {
         term: `/products/${data.data[0].id}/styles`,
       })
       .then((data) => {
-        console.log('current styles for the selected product', data.data.results);
+        //console.log('current styles for the selected product', data.data.results);
         changeStyles(data.data.results); //update the current styles for the currently displayed product
         changeDisplayedStyle(data.data.results[0]); //update the currently displayed style, defaults to first on page load.
         changeDisplayedPhoto(data.data.results[0].photos[0].url);
@@ -73,13 +73,11 @@ function App() {
       .catch((err) => console.log(err))
     }
   }, [currProd])
-
-
+  //console.log(currQuestions)
   return (
     <div className="app">
       <Overview displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
-      <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeQuestion={setCurrQuestions} currQuestions={currQuestions} changeProducts={changeProducts}/>
-      <div className="review-comp">To be used by review component</div>
+      <QnA currProd={currProd} currQuestions={currQuestions}/>
       <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews}/>
     </div>
   );
