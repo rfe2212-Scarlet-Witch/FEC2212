@@ -9,10 +9,15 @@ function OVImages (props) {
   let right ='→'
 
   useEffect(() => {
-    let newIndex=0;
-    // console.log('inside the use effect');
-    // console.log(newIndex);
+    changeIndex(0)
   }, [props.displayedStyle])
+
+  //change index function for clicking the side thumbnails
+  const changeIndexFunc = (index) => {
+    changeIndex(index);
+  }
+
+
 
   if (props.displayedPhoto===props.displayedStyle.photos[0].url) {
     left = '';
@@ -20,7 +25,8 @@ function OVImages (props) {
     left = '←'
   }
 
-  if (props.displayedPhoto===props.displayedStyle.photos[5].url) {
+  let indexMax = Object.keys(props.displayedStyle.photos).length - 1 || 0;
+  if (props.displayedPhoto===props.displayedStyle.photos[indexMax].url) {
     right = '';
   } else {
     // console.log(newIndex)
@@ -30,15 +36,14 @@ function OVImages (props) {
   let newIndex = newIndex || 0;
 
   const leftClick = () => {
-    console.log('props.displayedPhoto ', props.displayedPhoto)
     newIndex = displayIndex;
     newIndex--;
     changeIndex(newIndex);
+    console.log('trying to set props.displayedStyle.photos at index ', newIndex);
     props.changeDisplayedPhoto(props.displayedStyle.photos[newIndex].url)
   }
 
   const rightClick = () => {
-    console.log(props.displayedPhoto)
     newIndex = displayIndex;
     newIndex++;
     changeIndex(newIndex);
@@ -51,7 +56,7 @@ function OVImages (props) {
         <div>
         {
           props.displayedStyle.photos.map((photo, i) => {
-            return <OVCarouselImage displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle} key={i} photo={photo} i={i}/>
+            return <OVCarouselImage changeIndexFunc={changeIndexFunc} displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle} key={i} photo={photo} i={i}/>
           })
         }
         </div>
