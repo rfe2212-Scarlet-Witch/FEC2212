@@ -2,6 +2,7 @@
 //   border: 1px  black solid;
 // }
 
+
 body {
   margin-top: 0px;
   margin-right: 150px;
@@ -23,8 +24,6 @@ h1 {
 .currentProduct {
   display: flex;
 }
-
-
 
 .text {
   color: rgb(90, 90, 90);
@@ -261,9 +260,8 @@ h1 {
 }
 
 .container {
-  /* Optional - You can set a  min-height : whatever px; for reserving some space*/
-  max-height: 700px; /* Fix a max-height here */
-  overflow: auto; /* Optionally you can also use overflow: scroll; */
+  max-height: 700px;
+  overflow: auto;
   border-bottom: solid;
   margin-bottom: 20px;
   padding-bottom: 10px;
@@ -281,4 +279,13 @@ h1 {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+.text-muted{
+  font-size: x-small;
+  font-weight: 100;
+}
+.modal-input{
+  width: 40%;
+  height: 5%;
 }
