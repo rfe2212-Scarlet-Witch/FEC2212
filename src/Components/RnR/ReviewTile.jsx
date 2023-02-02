@@ -104,7 +104,7 @@ var renderPics = [];
         {twoFiftyLimit()}
         {renderThis.recommend ? <div style={styles.recFormat}><div>I Recommend This Product</div><IoIosCheckmark style={styles.checkmark}/></div> : <div></div>}
         {renderPics.length > 0 ? renderPics.map((pic) => (<img id='image' className='reviewImage' src={pic} ></img>)) : <div>No Photos</div>}
-        {renderThis.response ? <div>{renderThis.response}</div> : <div>No Response</div>}
+        {renderThis.response ? <div>Response From Seller: {renderThis.response}</div> : <div>No Response</div>}
       </div>
       {/* <div>Helpful? <>Yes {renderThis.helpfulness}</></div> */}
       {console.log(renderThis.review_id)}

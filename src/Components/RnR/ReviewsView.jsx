@@ -25,9 +25,10 @@ var ReviewsView = (props) => {
       height: '95%',
     },
     SortedReviews : {
-      overflow: 'hidden',
+      overflowY: 'scroll',
       height: '600px',
-      padding: "3%"
+      padding: "3%",
+
       // border: '1px solid grey'
     }
   }
