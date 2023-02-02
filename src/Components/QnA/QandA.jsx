@@ -4,15 +4,19 @@ import axios from 'axios';
 import QuestionList from './QuestionList.jsx';
 import Search from './Search.jsx';
 
-const QnA = ({currQuestions}) => {
+const QnA = ({currQuestions, currProd}) => {
 
-  //console.log(currQuestions)
-  //todo: add search bar
+  const filter = currQuestions.filter( (question) => {
+    return Object.keys(question.answers).length > 0;
+  })
+
+  console.log(currProd.id, currProd.name)
+
   return (
     <div>
       <h3>Questions & Answers</h3>
       <Search />
-      <QuestionList qs={currQuestions}/>
+      <QuestionList qs={filter} prodId={currProd.id} prodName={currProd.name}/>
     </div>
   )
 };
