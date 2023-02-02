@@ -160,56 +160,11 @@ h1 {
 
 
 
-.Reviews {
-  display: flex;
-  justify-content: row;
-  // max-width: 100px;
-  // max-height: 100px;
-  border: 1px solid black;
-  // padding-left: 20px;
-  // padding-right: 20px;
-  // justify-content: space-evenly;
-  // font-family:cursive;
-  justify-content: space-evenly;
-}
 
-.ReviewsRight {
-  padding-left: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-right:5%;
-  max-width: 70%;
-  max-height: 450px;
-  overflow: scroll;
-  border: 1px solid black;
 
-}
 
-.ReviewsLeft {
-  padding-left: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-right:5%;
-  max-width: 40%;
-  border: 1px solid black
-}
 
-.ReviewTile {
-  border: 4px solid black;
-  position: sticky;
-  float: 3px;
-  max-width: 100%;
-}
 
-.reviewTime {
-  // flex-direction: row;
-  display: flex;
-  border: 1px solid black;
-  // justify-content: space-evenly;
-  // padding-right: 100%;
-  justify-content: space-between;
-  // max-width: 100%;
-}
 
 // .RightSideData {
 //   display: flex;
@@ -252,38 +207,6 @@ h1 {
   border: 1px solid black;
 }
 
-.ScaleOne {
-  display: 'flex';
-  color: 'grey';
-  width: '360px';
-  height: '30px';
-  flex-direction: 'row';
-  border: "2px solid black";
-  justify-content: 'space-evenly'
-}
-
-.ScaleOne .BarOne {
-  position: 'relative';
-  width: '300px';
-  height: '30px';
-  border: '1px solid red';
-
-}
-
-.ScaleOne .BarTwo {
-  position: 'relative';
-  width: '120px';
-  height: '30px';
-  border: '1px solid red';
-
-}
-.ScaleOne .BarThree {
-  position: 'relative';
-  width: '120px';
-  height: '30px';
-  border: '1px solid red';
-
-}
 
 
 

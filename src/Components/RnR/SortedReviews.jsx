@@ -5,8 +5,11 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
+import Button from '@mui/material/Button'
 
 var SortedReviews = (props) => {
+  var reviewsSort = props.reviewsSort;
+  var setReviewsSort = props.setReviewsSort;
 
   var filterToNum = {
     5: 'Five Stars',
@@ -30,46 +33,42 @@ var SortedReviews = (props) => {
   }
 
 
+
   var toRender =[];
   var helpfulFirst = [];
   // console.log(props.sort)
   var [count, setcount] = useState(2);
-  var relevantFirst = [];
-  var newestFirst=[];
+  // toRender = props.allReviews;
+  // var relevantFirst = [];
+  // var newestFirst=[];
 
-
-  if (props.sort === 'Helpful') {
-    for(var i = 0; i < count && i < filteredReviews.length; i++) {
-      if (filteredReviews[i].helpfulness) {
-        helpfulFirst.unshift(filteredReviews[i])
-      } else {
-        helpfulFirst.push(filteredReviews[i]);
-      }
-    }
-    toRender = [...helpfulFirst];
-  } else if (props.sort === 'Newest') {
-    newestFirst = [...filteredReviews];
-    newestFirst.sort((a,b) => {
-      return a.date < b.date
-    })
-    // console.log('newest first', newestFirst);
-    for (var i = 0; i < count && i < newestFirst.length; i++) {
-      toRender.push(newestFirst[i]);
-    }
+  for(var i = 0; i < count && i < filteredReviews.length; i++) {
+    toRender.push(filteredReviews[i]);
   }
 
   var showMore = () => {
     setcount(count + 2);
   }
 
+  var styles = {
+    ListItem : {
+        display: 'flex',
+        flexDirection: 'column',
+        // border: "4px solid green",
+        maxHeight: '100%',
+    }
+  }
+
   return (
     <>
     <div>
     {toRender.map((render) => (
-        <ListItem className="ReviewTile" key={render.review_id}><ReviewTile renderThis={render}/></ListItem>
+        <ListItem style={styles.ListItem} key={render.review_id}><ReviewTile renderThis={render} divider={true}/></ListItem>
      ))
     }
-    <button onClick={showMore}>Show More</button>
+    </div>
+    <div>
+    {(count === toRender.length) ? <Button styles={styles.Button} onClick={showMore}>Show More</Button> : null}
     </div>
     </>
 

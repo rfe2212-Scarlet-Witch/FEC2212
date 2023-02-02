@@ -32,7 +32,7 @@ var AddReview = (props) => {
 
   return (
     <>
-      <button onClick={showModal}>{title}</button>
+      <Button onClick={showModal}>{title}</Button>
       <Dialog id='addReviewModal' open={showReview}>
         <DialogTitle>Review It!</DialogTitle>
         <ReviewForm setEmail={_setEmail} setYnRecommend={setYnRecommend}/>

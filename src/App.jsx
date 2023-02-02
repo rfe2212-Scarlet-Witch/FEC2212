@@ -16,6 +16,8 @@ function App() {
   const [currReviews, setCurrReviews] = useState([]); //All reviews for the current product
   const [currMeta, setCurrMeta] = useState([]);
   const [currQuestions, setCurrQuestions] = useState([]);
+  const [reviewsSort, setReviewsSort] = useState('relevant');
+  const [render, reRender] = useState([]);
 
   useEffect(() => {
     axios.post('', {
@@ -32,7 +34,7 @@ function App() {
         term: `/products/${data.data[0].id}/styles`,
       })
       .then((data) => {
-        console.log('current styles for the selected product', data.data.results);
+        // console.log('current styles for the selected product', data.data.results);
         changeStyles(data.data.results); //update the current styles for the currently displayed product
         changeDisplayedStyle(data.data.results[0]); //update the currently displayed style, defaults to first on page load.
         changeDisplayedPhoto(data.data.results[0].photos[0].thumbnail_url);
@@ -43,7 +45,8 @@ function App() {
 
       axios.post('/revs', {
         term: '/reviews/',
-        product_id: data.data[0].id
+        product_id: data.data[0].id,
+        sort: reviewsSort
       })
       .then((data) => {
         // console.log('this is the REVIEWS data', data.data);
@@ -52,7 +55,7 @@ function App() {
       .catch((err) => {
         throw err;
       });
-      axios.post('/revs', {
+      axios.post('/revsMeta', {
         term: '/reviews/meta',
         product_id: data.data[0].id
       })
@@ -74,7 +77,7 @@ function App() {
 
 
 
-  }, []);
+  }, [reviewsSort]);
 
   useEffect(() => {
     if(!Array.isArray(currProd)){
@@ -93,7 +96,7 @@ function App() {
       <Overview displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
       <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeQuestion={setCurrQuestions} currQuestions={currQuestions} changeProducts={changeProducts}/>
       <div className="review-comp">To be used by review component</div>
-      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta}/>
+      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
     </div>
   );
 }

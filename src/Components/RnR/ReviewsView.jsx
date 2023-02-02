@@ -7,26 +7,49 @@ var ReviewsView = (props) => {
   var currReviews = props.allReviews;
   var filters = props.filters;
   var setFilters = props.setFilters;
-  var [sortBy, setSortBy] = useState('Newest')
+  // var [sortBy, setSortBy] = useState('Newest')
+  var reviewsSort = props.reviewsSort;
+  var setReviewsSort = props.setReviewsSort;
+  var reRender = props.reRender;
 
   var handleSort = (e) => {
+    setReviewsSort(e.target.value);
+    // console.log('event', typeof e.target.value)
+    // reRender([]);
 
-    setSortBy(e.target.value);
   }
+  var styles={
+    ReviewsView : {
+      // border: '3px solid red',
+      width: '100%',
+      height: '95%',
+    },
+    SortedReviews : {
+      overflow: 'hidden',
+      height: '600px',
+      padding: "3%"
+      // border: '1px solid grey'
+    }
+  }
+
   return (
     <>
-      <div>Reviews View</div>
-      <div>
-        {currReviews.length} reviews, sorted by
-          <select value={sortBy} onChange={(e) => {handleSort(e)}}>
-            <option value="Newest">Newest</option>
-            <option value="Helpful">Helpful</option>
-            <option value="Relevant">Relevant</option>
-          </select>
-          Filtered By: {filters.map((elem) => (<li>{elem}</li>))}
-          {filters.length > 0 ? <button onClick={() => {setFilters([])}}>Reset Filters</button> : <div></div>}
-
-          <SortedReviews sort={sortBy} allReviews={props.allReviews} sortBy={sortBy} filters={filters}/>
+      <div style={styles.ReviewsView}>Reviews View
+        <div>
+          <div>
+            {currReviews.length} reviews, sorted by
+            <select value={reviewsSort} onChange={(e) => {handleSort(e)}}>
+              <option value="newest">newest</option>
+              <option value="helpful">helpful</option>
+              <option value="relevant">relevant</option>
+            </select>
+            Filtered By: {filters.map((elem) => (<li>{elem}</li>))}
+            {filters.length > 0 ? <button onClick={() => {setFilters([])}}>Reset Filters</button> : <div></div>}
+          </div>
+          <div style={styles.SortedReviews}>
+            <SortedReviews reviewsSort={reviewsSort} allReviews={props.allReviews} filters={filters}/>
+          </div>
+        </div>
       </div>
     </>
   )

@@ -46,12 +46,21 @@ var Stars = (props) => {
 
 
 
+  var style = {
+    Rating: {
+      fontSize: '40px',
+      // border: '1px solid black'
+    }
+  }
+
 
 
   return (
     <>
         <div>
+          <div style={style.Rating}>
           {Math.floor(averageStars) + '%'}
+          </div>
             <div>
               {Math.floor(percentRec) + '%' + ' of reviewers recommend this product'}
             </div>
