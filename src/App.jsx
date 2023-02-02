@@ -77,7 +77,7 @@ function App() {
   return (
     <div className="app">
       <Overview displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
-      <QnA currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeQuestion={setCurrQuestions} currQuestions={currQuestions} changeProducts={changeProducts}/>
+      <QnA currProd={currProd} currQuestions={currQuestions}/>
       <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews}/>
     </div>
   );
