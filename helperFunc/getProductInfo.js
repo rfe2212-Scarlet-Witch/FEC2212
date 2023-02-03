@@ -25,7 +25,7 @@ let getProductReviews = (term, product_id, sortBy) => {
       Authorization: config.TOKEN,
     },
     params: {
-      count: 200,
+      count: 300,
       product_id: product_id,
       sort: sortBy
     }

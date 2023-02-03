@@ -6,12 +6,13 @@ import { format } from 'date-fns';
 import Helpful from '../SharedComponents/Helpful.jsx'
 import Report from '../SharedComponents/Report.jsx'
 import {IoIosCheckmark} from "react-icons/io"
+import ImageHandler from "./ImageHandler.jsx"
 
 
 var ReviewTile = (props) => {
 
 var renderThis = props.renderThis;
-console.log('Rendering This', renderThis)
+// console.log('Rendering This', renderThis)
 var today = new Date(renderThis.date);
 today = format((today), 'MMMM dd, yyyy')
 // console.log(today);
@@ -50,9 +51,9 @@ var styles = {
     flexDirection: "row"
   },
   checkmark : {
-    maxWidth: "20%",
-    maxHeight: "20%",
-    border: '1px solid red'
+    width: "4%",
+    height: "4%",
+    // border: '1px solid red'
   },
   separator : {
     borderTop: "1px solid #333",
@@ -85,6 +86,13 @@ var renderPics = [];
     for (var i = 0; i < renderThis.photos.length; i ++) {
       renderPics.push(renderThis.photos[i].url);
     }
+  }
+
+var [showImage, setShowImage] = useState(false);
+var fullScreenImage = () => {
+
+}
+
 
 //
   return (
@@ -101,13 +109,13 @@ var renderPics = [];
       <div>
         {renderThis.summary !== '' ? <div style={styles.summary}>{renderThis.summary}</div> : <div>Summary</div>}
         <span style={styles.separator}></span>
-        {twoFiftyLimit()}
+        {/* {twoFiftyLimit()} */}
+        <div>{renderThis.body}</div>
         {renderThis.recommend ? <div style={styles.recFormat}><div>I Recommend This Product</div><IoIosCheckmark style={styles.checkmark}/></div> : <div></div>}
-        {renderPics.length > 0 ? renderPics.map((pic) => (<img id='image' className='reviewImage' src={pic} ></img>)) : <div>No Photos</div>}
+        <ImageHandler renderPics={renderPics}/>
         {renderThis.response ? <div>Response From Seller: {renderThis.response}</div> : <div>No Response</div>}
       </div>
-      {/* <div>Helpful? <>Yes {renderThis.helpfulness}</></div> */}
-      {console.log(renderThis.review_id)}
+      {/* {console.log(renderThis.review_id)} */}
       <>
       <Helpful id={renderThis.review_id} count={renderThis.helpfulness} type="reviews"/>
       <Report id={renderThis.review_id}/>
@@ -117,7 +125,7 @@ var renderPics = [];
 
   )
 
-}
+
 }
 
 export default ReviewTile;

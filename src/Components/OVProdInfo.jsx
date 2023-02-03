@@ -41,7 +41,7 @@ function OVProdInfo (props) {
 
     copyCart.push(newItem);
     setCart(copyCart);
-    console.log('your cart, ', cart);
+    // console.log('your cart, ', cart);
     }
 
   //handleChange for the quantity selector
@@ -75,7 +75,7 @@ function OVProdInfo (props) {
   }
   // document.getElementById('select-amount').value === undefined
   if (document.getElementById('select-size') === null) {
-    console.log('inside new');
+    // console.log('inside new');
   }
 
   //change sale price
@@ -99,7 +99,7 @@ function OVProdInfo (props) {
     document.getElementById('default').setAttribute('disabled', true);
     document.getElementById('cart').removeAttribute('hidden');
     if (!document.getElementById('select-size').value) {
-      console.log('no size selected');
+      // console.log('no size selected');
     }
     //if size is selected and no amount selected, default to 1 quantity
     if (document.getElementById('select-size').value && !document.getElementById('select-amount').value) {

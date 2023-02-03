@@ -10,6 +10,11 @@ import Button from '@mui/material/Button'
 var SortedReviews = (props) => {
   var reviewsSort = props.reviewsSort;
   var setReviewsSort = props.setReviewsSort;
+  var reRender = props.reRender;
+  var count = props.count;
+  var setCount = props.setCount;
+  // console.log('reviews sort', reviewsSort);
+  // console.log('setter reviews sort', setReviewsSort);
 
   var filterToNum = {
     5: 'Five Stars',
@@ -33,11 +38,10 @@ var SortedReviews = (props) => {
   }
 
 
-
+  // console.log(filteredReviews);
   var toRender =[];
   var helpfulFirst = [];
   // console.log(props.sort)
-  var [count, setcount] = useState(2);
   // toRender = props.allReviews;
   // var relevantFirst = [];
   // var newestFirst=[];
@@ -47,7 +51,8 @@ var SortedReviews = (props) => {
   }
 
   var showMore = () => {
-    setcount(count + 2);
+    setCount(count + 2);
+    reRender([]);
   }
 
   var styles = {
@@ -63,7 +68,7 @@ var SortedReviews = (props) => {
     <>
     <div>
     {toRender.map((render) => (
-        <ListItem style={styles.ListItem} key={render.review_id}><ReviewTile renderThis={render} divider={true}/></ListItem>
+        <ListItem style={styles.ListItem} key={render.review_id}><ReviewTile renderThis={render} key={render.review_id}/></ListItem>
      ))
     }
     </div>

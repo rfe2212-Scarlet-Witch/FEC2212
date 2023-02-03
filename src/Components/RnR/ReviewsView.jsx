@@ -12,9 +12,13 @@ var ReviewsView = (props) => {
   var setReviewsSort = props.setReviewsSort;
   var reRender = props.reRender;
 
+  var [count, setCount] = useState(2);
+
+
   var handleSort = (e) => {
+    console.log('event', e.target.value)
+    setCount(2);
     setReviewsSort(e.target.value);
-    // console.log('event', typeof e.target.value)
     // reRender([]);
 
   }
@@ -48,7 +52,7 @@ var ReviewsView = (props) => {
             {filters.length > 0 ? <button onClick={() => {setFilters([])}}>Reset Filters</button> : <div></div>}
           </div>
           <div style={styles.SortedReviews}>
-            <SortedReviews reviewsSort={reviewsSort} allReviews={props.allReviews} filters={filters}/>
+            <SortedReviews reviewsSort={reviewsSort} allReviews={props.allReviews} filters={filters} reRender={reRender} setCount={setCount} count={count}/>
           </div>
         </div>
       </div>

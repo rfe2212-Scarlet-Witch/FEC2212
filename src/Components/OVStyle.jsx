@@ -9,7 +9,7 @@ function OVStyle (props) {
     props.changeDisplayedStyle(props.currStyles[props.id])
     props.changeDisplayedPhoto(props.currStyles[props.id].photos[0].url)
   }
-  console.log(props.displayedStyle);
+  // console.log(props.displayedStyle);
   // if (props.displayedStyle === ) {
   //   if (props.displayedPhoto === props.style.photos[0].url) {
   //     check = true;

@@ -16,7 +16,7 @@ function App() {
   const [currReviews, setCurrReviews] = useState([]); //All reviews for the current product
   const [currMeta, setCurrMeta] = useState([]);
   const [currQuestions, setCurrQuestions] = useState([]);
-  const [reviewsSort, setReviewsSort] = useState('relevant');
+  const [reviewsSort, setReviewsSort] = useState('newest');
   const [render, reRender] = useState([]);
 
   useEffect(() => {
@@ -27,11 +27,11 @@ function App() {
       //console.log('current products', data.data);
 
       changeProducts(data.data);//update the current products
-      changeProd(data.data[0]);//update the currently displayed product, defaults to first on page load.
+      changeProd(data.data[12]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[0].id}/styles`,
+        term: `/products/${data.data[12].id}/styles`,
       })
       .then((data) => {
         // //console.log('current styles for the selected product', data.data.results);
@@ -39,34 +39,9 @@ function App() {
         changeDisplayedStyle(data.data.results[0]); //update the currently displayed style, defaults to first on page load.
         changeDisplayedPhoto(data.data.results[0].photos[0].url);
       })
-      .catch((err) => {
-        console.log('axios post for product data failed', err);
-      });
-
-      axios.post('/revs', {
-        term: '/reviews/',
-        product_id: data.data[0].id,
-        sort: reviewsSort
-      })
-      .then((data) => {
-        // console.log('this is the REVIEWS data', data.data);
-        setCurrReviews(data.data.results)
-      })
-      .catch((err) => {
-        throw err;
-      });
-      axios.post('/revsMeta', {
-        term: '/reviews/meta',
-        product_id: data.data[0].id
-      })
-      .then((data) => {
-        // console.log('this is the REVIEWS data', data.data);
-        setCurrMeta(data.data);
-        // console.log('Meta Results', data.data);
-      })
-      .catch((err) => {
-        throw err;
-      });
+      // .catch((err) => {
+      //   console.log('axios post for product data failed', err);
+      // });
 
       //this is the array of products received upon page render
       // console.log('this is the data', data.data);
@@ -77,7 +52,36 @@ function App() {
 
 
 
-  }, [reviewsSort]);
+  }, []);
+
+  useEffect(() => {
+
+      axios.post('/revs', {
+        term: '/reviews/',
+        product_id: currProd.id,
+        sort: reviewsSort
+      })
+      .then((data) => {
+        console.log('this is the REVIEWS data', data.data);
+        setCurrReviews(data.data.results)
+      })
+      .catch((err) => {
+        throw err;
+      });
+      axios.post('/revsMeta', {
+        term: '/reviews/meta',
+        product_id: currProd.id
+      })
+      .then((data) => {
+        // console.log('this is the REVIEWS data', data.data);
+        setCurrMeta(data.data);
+        console.log('Meta Results', data.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+
+  }, [reviewsSort, currProd])
 
   useEffect(() => {
     if(!Array.isArray(currProd)){

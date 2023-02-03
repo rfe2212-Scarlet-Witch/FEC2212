@@ -5,17 +5,20 @@ import {AiOutlineCaretDown} from 'react-icons/ai'
 
 var Scales = (props) => {
   var currMeta = props.currMeta;
-  console.log('Available Data', currMeta);
+  // console.log('Available Data', currMeta);
 
   var calculatedComfort =  0;
   var calculatedQuality =  0;
   var calculatedFit =  0;
   var calculatedLength =  0;
   if(currMeta.characteristics){
-    calculatedComfort = currMeta.characteristics.Comfort.value;
-    calculatedQuality = currMeta.characteristics.Quality.value;
-    calculatedFit = currMeta.characteristics.Fit.value;
-    calculatedLength = currMeta.characteristics.Length.value;
+    if (currMeta.characteristics.Comfort) {
+      calculatedComfort = currMeta.characteristics.Comfort.value;
+    }
+    if (currMeta.characteristics.Quality) calculatedQuality = currMeta.characteristics.Quality.value;
+    if (currMeta.characteristics.Fit)     calculatedFit = currMeta.characteristics.Fit.value;
+    if (currMeta.characteristics.Length) calculatedLength = currMeta.characteristics.Length.value;
+
   }
 
   const stylers = {
