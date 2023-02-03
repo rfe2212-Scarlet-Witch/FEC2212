@@ -10,7 +10,7 @@ const QnA = ({currQuestions, currProd}) => {
     return Object.keys(question.answers).length > 0;
   })
 
-  console.log(currProd.id, currProd.name)
+
 
   return (
     <div>
