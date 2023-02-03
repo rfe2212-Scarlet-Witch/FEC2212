@@ -5,7 +5,6 @@ import {AiOutlineCaretDown} from 'react-icons/ai'
 
 var Scales = (props) => {
   var currMeta = props.currMeta;
-  console.log('Available Data', currMeta);
 
   var calculatedComfort =  0;
   var calculatedQuality =  0;

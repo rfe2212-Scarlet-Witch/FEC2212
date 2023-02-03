@@ -11,7 +11,7 @@ import {IoIosCheckmark} from "react-icons/io"
 var ReviewTile = (props) => {
 
 var renderThis = props.renderThis;
-console.log('Rendering This', renderThis)
+
 var today = new Date(renderThis.date);
 today = format((today), 'MMMM dd, yyyy')
 // console.log(today);
@@ -107,7 +107,6 @@ var renderPics = [];
         {renderThis.response ? <div>Response From Seller: {renderThis.response}</div> : <div>No Response</div>}
       </div>
       {/* <div>Helpful? <>Yes {renderThis.helpfulness}</></div> */}
-      {console.log(renderThis.review_id)}
       <>
       <Helpful id={renderThis.review_id} count={renderThis.helpfulness} type="reviews"/>
       <Report id={renderThis.review_id}/>

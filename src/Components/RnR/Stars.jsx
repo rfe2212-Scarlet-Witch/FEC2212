@@ -34,6 +34,7 @@ var Stars = (props) => {
     didRecommend = parseInt(currMeta.recommended[true]);
   }
 
+
   sum = five + four + three + two + one;
 
   var averageStars = (((five * 5) + (four * 4) + (three * 3)  + (two * 2) + one) / ((five + four + three + two + one)  * 5)) * 100;

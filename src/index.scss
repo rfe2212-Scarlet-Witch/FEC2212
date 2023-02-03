@@ -19,8 +19,28 @@ h1 {
 #header {
   background-color: grey;
   height: 75px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
+
+#title {
+  color: white;
+  font-size: 75px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding-left: 20px;
+}
+
+#message {
+  padding-bottom: 25px;
+  justify-self: center;
+}
+
+#view-reviews {
+  position: absolute;
+  padding-left: 10px;
+  top: 148px;
+  color: rgb(74, 74, 74);
+}
+
 .currentProduct {
   display: flex;
 }
@@ -41,6 +61,23 @@ h1 {
   top: 400px;
   left: 275px;
   font-size: x-large;
+  z-index: 2;
+  background-color: rgba(255, 252, 252, 0.3);
+  opacity: .8
+}
+
+#left-arrow-expanded {
+  position: absolute;
+  top: 400px;
+  left: 420px;
+  font-size: x-large;
+  z-index: 2;
+  background-color: rgba(255, 252, 252, 0.3);
+  opacity: .8
+}
+
+#left-arrow-gone {
+  opacity: 0;
 }
 
 #right-arrow {
@@ -48,6 +85,23 @@ h1 {
   top: 400px;
   left: 705px;
   font-size: x-large;
+  z-index: 2;
+  background-color: rgba(255, 252, 252, 0.3);
+  opacity: .8
+}
+
+#right-arrow-expanded {
+  position: absolute;
+  top: 400px;
+  left: 1005px;
+  font-size: x-large;
+  z-index: 2;
+  background-color: rgba(255, 252, 252, 0.3);
+  opacity: .8
+}
+
+#right-arrow-gone {
+  opacity: 0;
 }
 
 #image-container{
@@ -57,23 +111,7 @@ h1 {
   justify-content: center;
 }
 
-#image-carousel {
-  padding-top: 20px;
-  padding-left: 25px;
-  padding-bottom: 20px;
-  position: absolute;
-  height: 500px;
-  width: 75px;
-  outline-width: 50px;
-}
 
-.carousel-image {
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
-  border-radius: 50%;
-  opacity: 50%;
-}
 
 #selected-style-image {
   opacity: 1;
@@ -93,6 +131,8 @@ h1 {
   max-width: 700px;
 }
 
+
+
 .prodInfo {
   display: flex;
   flex-direction: column;
@@ -109,7 +149,6 @@ h1 {
 }
 
 #category {
-  padding-top: 20px;
   font-weight: 300;
 }
 
@@ -157,9 +196,12 @@ h1 {
   flex-wrap: wrap;
   height: 50px;
   width: 100%;
-  padding-top: 20px;
   padding-bottom: 20px;
 
+}
+
+#alert-message {
+  color: red;
 }
 
 #select-size {
@@ -172,7 +214,6 @@ h1 {
 #select-amount {
   width: 40%;
   height: 100%;
-
 }
 
 #cart-heart {
@@ -183,7 +224,16 @@ h1 {
 
 #cart {
   width: 30%;
-  height: 100%
+  height: 100%;
+  background-color: white;
+  border: 1px black solid;
+}
+
+#view-cart {
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  border: 1px black solid;
 }
 
 #heart {
@@ -194,8 +244,8 @@ h1 {
 }
 
 #social {
-  border: 2px black solid;
-  padding-top: 10px;
+  // border: 2px black solid;
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
 
@@ -208,10 +258,79 @@ h1 {
   justify-content: center;
 }
 
+// #modal-image {
+//   height: 1000px;
+//   position: absolute;
+//   top: -400px;
+//   background-image: transparent;
+// }
+
 .center {
   display: flex;
   margin-left: auto;
   margin-right: auto;
+}
+
+#expanded-image {
+  position: absolute;
+  object-fit: cover;
+  height: 1000px;
+  max-width: 1000px;
+  top: 50%;
+  left: 50%;
+  background-size: cover;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  // align-items: center;
+  border: 500px black solid;
+  z-index: 2;
+  cursor: crosshair;
+}
+
+#zoomed-image {
+  position: absolute;
+  object-fit: cover;
+  height: 1000px;
+  max-width: 1000px;
+  background-size: cover;
+  transform-origin: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  transform: scale(2.5);
+  // align-items: center;
+  border: 600px black solid;
+  z-index: 2;
+  cursor: url('https://img.icons8.com/material-outlined/24/null/minus-math.png') auto;
+}
+
+#image-carousel {
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-bottom: 20px;
+  position: absolute;
+  height: 500px;
+  width: 75px;
+  outline-width: 50px;
+  z-index: 2;
+}
+
+.carousel-image {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 50%;
+  z-index: 3;
+}
+
+#image-carousel-expanded {
+  position: absolute;
+  top: 700px;
+  left: 500px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 50%;
+  z-index: 3;
 }
 
 ////////////////////////////////

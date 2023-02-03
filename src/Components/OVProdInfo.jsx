@@ -3,6 +3,8 @@ import OVStyle from './OVStyle.jsx';
 import { BsTwitter } from 'react-icons/bs';
 import { GrInstagram } from 'react-icons/gr';
 import { FaFacebookF } from 'react-icons/fa';
+import {FacebookShareButton, FacebookIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon} from "react-share";
+import Rating from '@mui/material/Rating'
 
 function OVProdInfo (props) {
   let oldPrice = '   '
@@ -75,7 +77,7 @@ function OVProdInfo (props) {
   }
   // document.getElementById('select-amount').value === undefined
   if (document.getElementById('select-size') === null) {
-    console.log('inside new');
+    // console.log('inside new');
   }
 
   //change sale price
@@ -97,13 +99,13 @@ function OVProdInfo (props) {
   if (Object.keys(fakeObj).length > 1) {
     document.getElementById("select-size").removeAttribute('disabled');
     document.getElementById('default').setAttribute('disabled', true);
-    document.getElementById('cart').removeAttribute('hidden');
+    document.getElementById('cart').removeAttribute('hidden', true);
     if (!document.getElementById('select-size').value) {
-      console.log('no size selected');
+      // console.log('no size selected');
     }
     //if size is selected and no amount selected, default to 1 quantity
     if (document.getElementById('select-size').value && !document.getElementById('select-amount').value) {
-      console.log('currently selected amount ', document.getElementById('select-amount').value);
+      document.getElementById("default-size").setAttribute('disabled', true);
       document.getElementById('select-amount').value = 0;
     }
     font = 'SELECT SIZE'; //this line changes the text inside of the size selector
@@ -118,9 +120,44 @@ function OVProdInfo (props) {
     setHeart(!heart);
   }
 
+  let currMeta = props.currMeta;
+  var five = 0;
+  var four = 0;
+  var three = 0;
+  var two = 0;
+  var one = 0;
+  var sum = 0;
+  var didNotRecommend = 0;
+  var didRecommend = 0;
+
+
+  if (currMeta.ratings) {
+    five = parseInt(currMeta.ratings[5]);
+    four = parseInt(currMeta.ratings[4]);
+    three = parseInt(currMeta.ratings[3]);
+    two = parseInt(currMeta.ratings[2]);
+    one = parseInt(currMeta.ratings[1]);
+    didNotRecommend = parseInt(currMeta.recommended[false]);
+    didRecommend = parseInt(currMeta.recommended[true]);
+  }
+
+
+  sum = five + four + three + two + one;
+
+  var averageStars = (((five * 5) + (four * 4) + (three * 3)  + (two * 2) + one) / ((five + four + three + two + one)  * 5)) * 100;
+  // console.log(((five * 5) + (four * 4) + (three * 3)  + (two * 2) + one));
+  // console.log(((five + four + three + two + one)  * 5))
+
+  var recTotal = didNotRecommend + didRecommend;
+  var percentRec = (didRecommend/recTotal) * 100;
+
 
   return (
     <div className='prodInfo'>
+      <div>
+        <Rating  readOnly={true} precision={1/4} value={(averageStars/100) * 5} size={'large'}/>
+        <u id='view-reviews'>view reviews</u>
+      </div>
       <strong id='category' >
         {props.currProd.category}
       </strong>
@@ -159,7 +196,7 @@ function OVProdInfo (props) {
       <div id="select-size-container">
 
         <select onChange={handleChange} id="select-size" disabled>
-        <option  value="">{font}</option>
+        <option id="default-size" value="">{font}</option>
         {Object.keys(fakeObj).map((key) => {
           return <option  key={key} value={key}>{fakeObj[key].size}</option>
         })}
@@ -178,18 +215,28 @@ function OVProdInfo (props) {
       <div id="cart-heart">
         <button id='cart' onClick={handleClick} hidden>ADD TO CART</button>
         {/* <button id='heart' onClick={handleHeart}>{!heart ? '♥' : '♡'}</button> */}
+        <button id="view-cart">VIEW CART</button>
+
       </div>
 
       <div id="social">
-          <div id="twitter">
-          <BsTwitter size={25}/>
-          </div>
-          <div id="instagram">
-            <GrInstagram size={25}/>
-          </div>
-          <div>
-            <FaFacebookF size={25}/>
-          </div>
+
+            <TwitterShareButton url={"twitter.com"} >
+              <TwitterIcon size={40} round={true}/>
+            </TwitterShareButton>
+            <div>
+
+            </div>
+
+            <PinterestShareButton url={"pinterest.com"} >
+              <PinterestIcon size={40} round={true}/>
+            </PinterestShareButton>
+
+
+            <FacebookShareButton url={"facebook.com"} >
+              <FacebookIcon size={40} round={true}/>
+            </FacebookShareButton>
+
 
       </div>
 
