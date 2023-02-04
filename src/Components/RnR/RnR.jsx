@@ -67,7 +67,7 @@ var RnR = (props) => {
             <div style={styles.ReviewsRight}>
               <ReviewsView allReviews={currReviews} filters={filters} setFilters={setFilters} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
               <div>
-                <AddReview title={'Add Review'} currentProduct={currentProduct}/>
+                <AddReview title={'Add Review'} currentProduct={currentProduct} currMeta={currMeta}/>
               </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField'
 import ReviewForm from './ReviewForm.jsx'
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '../SharedComponents/Modal.jsx'
 import Rating from '@mui/material/Rating'
+import AddReviewButtons from './AddReviewButtons.jsx'
 
 
 
@@ -13,7 +14,7 @@ import Rating from '@mui/material/Rating'
 
 
 
-var AddReview = ({title, currentProduct}) => {
+var AddReview = ({title, currentProduct, currMeta}) => {
 
   const [showModal, setShowModal] = useState(false);
   const [inputs, setInputs] = useState({});
@@ -63,15 +64,19 @@ var AddReview = ({title, currentProduct}) => {
       display: "flex",
       flexDirection: "row",
       border: '1px solid black'
-    }
-  }
-
-  var styles = {
+    },
     Modal : {
       width: '100%',
       height: '100%'
     }
   }
+
+  //125075 Comfort
+  //125073 Fit
+  //125074 Length
+  //125076 Quality
+  //125060 Size
+  //125061 Width
 
   var checkmark = true;
   return (
@@ -80,17 +85,15 @@ var AddReview = ({title, currentProduct}) => {
     Add Review +
   </button>
   <Modal show={showModal} setShow={setShowModal} style={styles.Modal}>
-      <ModalHeader>
-        <h2 style={{ "marginTop": "0px","marginBottom": "4px"}}>
-          Write Your Review
-        </h2>
-        <h4 style={{"marginTop": "0px", "marginBottom": "0px"}}>
-          About {currentProduct.name}
-        </h4>
+  <ModalHeader>
+        <h2 style={{ "marginTop": "0px",
+        "marginBottom": "4px"}}>Ask Your Question</h2>
+        <h4 style={{"marginTop": "0px", "marginBottom": "0px"}}
+        >About {currentProduct.name}</h4>
       </ModalHeader>
-      <ModalBody >
+      <ModalBody>
 
-        <form id="form1" onSubmit={handleSubmit}>
+        <form id="form3" onSubmit={handleSubmit}>
 
               {/* Star Rating */}
               <label> Leave a Star Rating </label>
@@ -106,88 +109,18 @@ var AddReview = ({title, currentProduct}) => {
               <label for="reco">Do You Recommend This Product</label>
               <br/>
 
-              <fieldset onChange={handleChange}>
-                <div style={styles.size_one}>
-                  Size
-                  <div >
-                    <input  type="radio" id="size_one" value="1" name="125035" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="size_one" >A size too small</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="size_two" value="2" name="125035" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="size_two">1/2 a size too small</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="size_three" value="3" name="125035" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="size_three">Perfect</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="size_four" value="4" name="125035" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="size_four">1/2 a size too big</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="size_five" value="5" name="125035" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="size_five">A size too wide</label>
-                  </div>
-                </div>
-                {/* {console.log(size)} */}
-              </fieldset>
+              <AddReviewButtons currentProduct={currentProduct} handleChange={handleChange} currMeta={currMeta}/>
 
-              <fieldset onChange={handleChange}>
-                <div style={styles.size_one}>
-                  Comfort
-                  <div >
-                    <input  type="radio" id="comfort_one" value="1" name="125075" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="comfort_one" >Uncomfortable</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="comfort_two" value="2" name="125075" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="comfort_two">Slightly Uncomfortable</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="comfort_three" value="3" name="125075" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="comfort_three">Ok</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="comfort_four" value="4" name="125075" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="comfort_four">Comfortable</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="size_five" value="5" name="125035" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="size_five">Perfect</label>
-                  </div>
-                </div>
-                {/* {console.log(size)} */}
-              </fieldset>
+              <label>Review Summary</label><br/>
+              <textarea
+              rows="2" cols="25" maxLength="60"
+              name="summary"
+              value={inputs.summary || ""}
+              onChange={handleChange}
+              required
+              /><br/>
 
-              <fieldset onChange={handleChange}>
-                <div style={styles.size_one}>
-                  Fit
-                  <div >
-                    <input  type="radio" id="fit_one" value="1" name="125073" onClick={(e) => {setFit(e.target.value)}}></input>
-                    <label for="fit_one" >Runs tight</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="fit_two" value="2" name="125073" onClick={(e) => {setFit(e.target.value)}}></input>
-                    <label for="fit_two">Runs slightly tight</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="fit_three" value="3" name="125073" onClick={(e) => {setFit(e.target.value)}}></input>
-                    <label for="fit_three">Perfect</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="fit_four" value="4" name="125073" onClick={(e) => {setFit(e.target.value)}}></input>
-                    <label for="fit_four">Runs slightly long</label>
-                  </div>
-                  <div>
-                    <input  type="radio" id="fit_five" value="5" name="125073" onClick={(e) => {setSize(e.target.value)}}></input>
-                    <label for="fit_five">Runs long</label>
-                  </div>
-                </div>
-                {/* {console.log(size)} */}
-              </fieldset>
-
-              <label>Your Question</label><br/>
+              <label>Your Review Body</label><br/>
               <textarea
               rows="6" cols="50" maxLength="1000"
               name="body"
@@ -228,7 +161,7 @@ var AddReview = ({title, currentProduct}) => {
               Close
           </button>
           <button variant="primary"
-          type="submit" form="form1" value="Submit"
+          type="submit" form="form3" value="Submit"
           onSubmit={handleSubmit} >Submit</button>
       </ModalFooter>
   </Modal>
