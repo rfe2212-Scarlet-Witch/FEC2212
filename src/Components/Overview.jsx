@@ -16,10 +16,15 @@ function Overview (props) {
   return (
     <div>
       <div id="header">
-        Title
+        <strong id='title'>
+          BIZARRE BAZAAR
+        </strong>
+      </div>
+      <div id="message">
+        Welcome to bizarre bazaar! All products are completely free! Just pay shipping, handling, and a small processing fee equivalent to the price of the product!
       </div>
       <div className="OVProd">
-      <OVProd displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} currProd={props.currProd} changeProd={props.changeProd} currStyles={props.currStyles} changeStyles={props.changeStyles} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
+      <OVProd currMeta={props.currMeta} displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} currProd={props.currProd} changeProd={props.changeProd} currStyles={props.currStyles} changeStyles={props.changeStyles} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
       </div>
 
     </div>
