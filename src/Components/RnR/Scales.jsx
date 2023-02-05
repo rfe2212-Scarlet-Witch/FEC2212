@@ -159,9 +159,9 @@ var Scales = (props) => {
       order: 1
     }
   }
-  console.log('calculatedComfort', calculatedComfort)
+  // console.log('calculatedComfort', calculatedComfort)
   if (calculatedComfort === 0) {
-    console.log('tis undefined')
+    // console.log('tis undefined')
     stylers.BoxOutline.left = '1000px'
   }
 

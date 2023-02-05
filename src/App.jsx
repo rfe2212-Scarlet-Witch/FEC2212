@@ -59,7 +59,7 @@ function App() {
         sort: reviewsSort
       })
       .then((data) => {
-        console.log('this is the REVIEWS data', data.data);
+        // console.log('this is the REVIEWS data', data.data);
         setCurrReviews(data.data.results)
       })
       .catch((err) => {
@@ -71,7 +71,7 @@ function App() {
       })
       .then((data) => {
         setCurrMeta(data.data);
-        console.log('Meta Results', data.data);
+        // console.log('Meta Results', data.data);
       })
       .catch((err) => {
         throw err;

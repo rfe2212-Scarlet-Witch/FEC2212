@@ -81,9 +81,10 @@ var AddReviewButtons = ({currentProduct, handleChange, currMeta}) => {
     copyOfCs[e.target.name] = e.target.id;
     setCs(copyOfCs)
   }
-
+  var unique_key = 0;
 
   if (cc && currCharacteristics) {
+    unique_key++;
     return (
       <>
       <div style={styles.currentSelection}>
@@ -97,14 +98,14 @@ var AddReviewButtons = ({currentProduct, handleChange, currMeta}) => {
         {cc.map((c) => (
           <div >
             {c}
-            <fieldset onChange={(e) => {handleChangeHandler(e)}} >
+            <fieldset onChange={(e) => {handleChangeHandler(e)}} key={currCharacteristics[c].id} >
             <script>{i = 1}</script>
             {listOfAttributes[c] ?
               listOfAttributes[c].map((phrase) => (
 
                 <div>
-                <input  type="radio" id={phrase} value={i} name={currCharacteristics[c].id} ></input>
-                <label for="size_one" >{phrase}</label>
+                <input  type="radio" id={phrase} value={i} name={currCharacteristics[c].id} key={currCharacteristics[c].id}></input>
+                <label htmlFor="size_one" >{phrase}</label>
                 <script>
                 {i++}
                 </script>

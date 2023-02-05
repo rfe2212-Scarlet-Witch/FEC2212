@@ -31,13 +31,14 @@ var style = {
     objectFit: 'contain'
   }
 }
-
+var key_unique = 0;
 var render = () => {
   if (showImage) {
-    return renderPics.map((pic) => (<div><img id='image' src={pic} key={pic.id} onClick={show} style={style.showImage}></img></div>))
+    return renderPics.map((pic) => (<div><img id='image' src={pic} key={key_unique} onClick={show} style={style.showImage}></img></div>))
   } else {
-    return renderPics.map((pic) => (<img id='image' src={pic} key={pic.id} onClick={show} style={style.imageDefault}></img>))
+    return renderPics.map((pic) => (<img id='image' src={pic} key={key_unique} onClick={show} style={style.imageDefault}></img>))
   }
+  key_unique++;
 }
 
 return (
