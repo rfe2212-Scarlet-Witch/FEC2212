@@ -5,16 +5,28 @@ import {AiOutlineCaretDown} from 'react-icons/ai'
 
 var Scales = (props) => {
   var currMeta = props.currMeta;
+  // console.log('Available Data', currMeta);
 
   var calculatedComfort =  0;
   var calculatedQuality =  0;
   var calculatedFit =  0;
   var calculatedLength =  0;
+  var calculatedSize =  0;
+  var calculatedWidth =  0;
+
+
   if(currMeta.characteristics){
-    calculatedComfort = currMeta.characteristics.Comfort.value;
-    calculatedQuality = currMeta.characteristics.Quality.value;
-    calculatedFit = currMeta.characteristics.Fit.value;
-    calculatedLength = currMeta.characteristics.Length.value;
+    if (currMeta.characteristics.Comfort) {
+      calculatedComfort = currMeta.characteristics.Comfort.value;
+    }
+    if (currMeta.characteristics.Quality) calculatedQuality = currMeta.characteristics.Quality.value;
+    if (currMeta.characteristics.Fit)     calculatedFit = currMeta.characteristics.Fit.value;
+    if (currMeta.characteristics.Length) calculatedLength = currMeta.characteristics.Length.value;
+    if (currMeta.characteristics.Size) calculatedSize = currMeta.characteristics.Size.value;
+    if (currMeta.characteristics.Width) calculatedWidth = currMeta.characteristics.Width.value;
+
+
+
   }
 
   const stylers = {
@@ -36,7 +48,7 @@ var Scales = (props) => {
       color: 'black',
       height: "50%",
       width: '40%',
-      left: `${-(calculatedComfort /3) * 100 }px`,
+      left: `${-(calculatedComfort /4) * 100 }%`,
       order: 1
     },
     AiOutlineQuality : {
@@ -46,7 +58,7 @@ var Scales = (props) => {
       color: 'black',
       height: "50%",
       width: '40%',
-      left: `${-(calculatedQuality /3) * 100 }px`,
+      left: `${-(calculatedQuality /4) * 100 }%`,
       order: 1
     },
     AiOutlineLength : {
@@ -56,7 +68,7 @@ var Scales = (props) => {
       color: 'black',
       height: "50%",
       width: '40%',
-      left: `${-(calculatedLength /3) * 100 }px`,
+      left: `${-(calculatedLength /4) * 100 }%`,
       order: 1
     },
     AiOutlineFit : {
@@ -66,7 +78,27 @@ var Scales = (props) => {
       color: 'black',
       height: "50%",
       width: '40%',
-      left: `${-(calculatedFit /3) * 100 }px`,
+      left: `${-(calculatedFit /4) * 100 }%`,
+      order: 1
+    },
+    AiOutlineWidth : {
+      position: 'relative',
+      // border: '1px solid black',
+      // display: 'inline-block',
+      color: 'black',
+      height: "50%",
+      width: '40%',
+      left: `${-(calculatedWidth /3) * 100 }px`,
+      order: 1
+    },
+    AiOutlineSize : {
+      position: 'relative',
+      // border: '1px solid black',
+      // display: 'inline-block',
+      color: 'black',
+      height: "50%",
+      width: '40%',
+      left: `${-(calculatedSize /3) * 100 }px`,
       order: 1
     },
     GripLine : {
@@ -127,9 +159,16 @@ var Scales = (props) => {
       order: 1
     }
   }
+  console.log('calculatedComfort', calculatedComfort)
+  if (calculatedComfort === 0) {
+    console.log('tis undefined')
+    stylers.BoxOutline.left = '1000px'
+  }
 
   return (
     <>
+    {calculatedComfort !== 0 ? (
+      <>
       <div style={stylers.ComfortTitle}>
           Comfort
       </div>
@@ -155,6 +194,12 @@ var Scales = (props) => {
             </div>
           </div>
       </div>
+      </>
+      ) : null}
+
+
+      {calculatedQuality !== 0 ? (
+        <>
       <div style={stylers.ComfortTitle}>
           Quality
       </div>
@@ -180,6 +225,13 @@ var Scales = (props) => {
             </div>
           </div>
       </div>
+      </>
+      ): null}
+
+
+
+      {calculatedLength !== 0 ? (
+        <>
       <div style={stylers.ComfortTitle}>
           Length
       </div>
@@ -205,6 +257,12 @@ var Scales = (props) => {
             </div>
           </div>
       </div>
+      </>
+      ): null}
+
+
+        {calculatedFit !== 0 ? (
+          <>
       <div style={stylers.ComfortTitle}>
           Fit
       </div>
@@ -230,7 +288,70 @@ var Scales = (props) => {
             </div>
           </div>
       </div>
+      </>
+        ): null}
 
+
+      {calculatedWidth !== 0 ? (
+      <>
+      <div style={stylers.ComfortTitle}>
+          Width
+      </div>
+      <div style={stylers.FaGripParent}>
+        <div style={stylers.scale}>
+          <FaGripLines preserveAspectRatio="none" style={stylers.GripLine}/>
+          <FaGripLines preserveAspectRatio="none" style={stylers.GripLine}/>
+          <FaGripLines preserveAspectRatio="none" style={stylers.GripLine}/>
+          <AiOutlineCaretDown preserveAspectRatio="none" style={stylers.AiOutlineWidth}/>
+
+        </div>
+          <div style={stylers.ComfortLabels}>
+            <div style={stylers.ComfortLabelsLeft}>
+            Too Narrow
+            </div>
+            <div style={stylers.ComfortLabels}>
+            Perfect
+            </div>
+            <div style={stylers.ComfortLabelsRight}>
+            Too Wide
+            </div>
+            <div style={stylers.BoxOutline}>
+            </div>
+          </div>
+      </div>
+      </>
+        ): null}
+
+
+    {calculatedSize !== 0 ? (
+      <>
+      <div style={stylers.ComfortTitle}>
+          Size
+      </div>
+      <div style={stylers.FaGripParent}>
+        <div style={stylers.scale}>
+          <FaGripLines preserveAspectRatio="none" style={stylers.GripLine}/>
+          <FaGripLines preserveAspectRatio="none" style={stylers.GripLine}/>
+          <FaGripLines preserveAspectRatio="none" style={stylers.GripLine}/>
+          <AiOutlineCaretDown preserveAspectRatio="none" style={stylers.AiOutlineSize}/>
+
+        </div>
+          <div style={stylers.ComfortLabels}>
+            <div style={stylers.ComfortLabelsLeft}>
+            Size Too Small
+            </div>
+            <div style={stylers.ComfortLabels}>
+            Perfect
+            </div>
+            <div style={stylers.ComfortLabelsRight}>
+            Runs Wide
+            </div>
+            <div style={stylers.BoxOutline}>
+            </div>
+          </div>
+      </div>
+      </>
+        ): null}
     </>
   )
 }

@@ -28,7 +28,7 @@ var RnR = (props) => {
       maxWidth: "100%",
       maxHeight: "100%",
       // overflow: 'scroll',
-      border: "1px solid blue",
+      // border: "1px solid blue",
       flexGrow: 2
     },
     ReviewsLeft : {
@@ -67,7 +67,7 @@ var RnR = (props) => {
             <div style={styles.ReviewsRight}>
               <ReviewsView allReviews={currReviews} filters={filters} setFilters={setFilters} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
               <div>
-                <AddReview title={'Add Review'}/>
+                <AddReview title={'Add Review'} currentProduct={currentProduct} currMeta={currMeta}/>
               </div>
             </div>
         </div>

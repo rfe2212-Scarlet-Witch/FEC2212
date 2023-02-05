@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express();
-const { getProductInfo, getProductReviews, getProductReviewsMeta , getProductQuestions, updatePuts} = require('../helperFunc/getProductInfo.js');
+const { getProductInfo, getProductReviews, getProductReviewsMeta , getProductQuestions, updatePuts, sendReviews} = require('../helperFunc/getProductInfo.js');
 
 
 app.use(express.static('public'));
@@ -27,6 +27,17 @@ app.post('/revs', function (req, res) {
     console.log('error communicating with API', err);
   })
 
+})
+
+app.post('/revPost', (req,res) => {
+  // console.log(req.body.packet);
+  let sendReview = sendReviews('/reviews', req.body.packet);
+  sendReview.then((data) => {
+    res.send(201);
+    console.log(data, 'sent');
+  }).catch((err) => {
+    console.log(err);
+  })
 })
 
 app.post('/revsMeta', function (req, res) {

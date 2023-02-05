@@ -43,7 +43,7 @@ function OVProdInfo (props) {
 
     copyCart.push(newItem);
     setCart(copyCart);
-    console.log('your cart, ', cart);
+    // console.log('your cart, ', cart);
     }
 
   //handleChange for the quantity selector

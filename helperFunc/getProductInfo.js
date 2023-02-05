@@ -25,7 +25,7 @@ let getProductReviews = (term, product_id, sortBy) => {
       Authorization: config.TOKEN,
     },
     params: {
-      count: 200,
+      count: 300,
       product_id: product_id,
       sort: sortBy
     }
@@ -80,8 +80,31 @@ let updatePuts = (term) => {
   return axios(options);
 }
 
+let sendReviews = (term, packet) => {
+  let options = {
+    method: 'POST',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe${term}`,
+    headers: {
+      Authorization: config.TOKEN,
+    },
+    params: {
+      product_id: parseInt(packet.product_id),
+      rating: parseInt(packet.rating),
+      summary: packet.summary,
+      body: packet.body,
+      recommend: packet.recommend,
+      name: packet.name,
+      email: packet.email,
+      photos: packet.photos,
+      characteristics: packet.characteristics
+    }
+  };
+  return axios(options);
+}
+
 module.exports.getProductInfo = getProductInfo;
 module.exports.getProductReviews = getProductReviews;
 module.exports.getProductReviewsMeta = getProductReviews;
 module.exports.getProductQuestions = getProductQuestions;
 module.exports.updatePuts = updatePuts;
+module.exports.sendReviews = sendReviews;
