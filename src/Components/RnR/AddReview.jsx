@@ -90,7 +90,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
       inputs.product_id = currentProduct.id
       event.preventDefault();
       preparePacket(inputs);
-      console.log('sending', toSend);
+      // console.log('sending', toSend);
       //Post request to /reviews
       axios.post('/revPost', {
         packet: toSend
@@ -202,7 +202,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
               <br/>
 
               <input type='checkbox' name="recommend"id="reco" onChange={recommendHandler}></input>
-              <label for="reco">Do You Recommend This Product</label>
+              <label htmlFor="reco">Do You Recommend This Product</label>
               <br/>
 
               <AddReviewButtons currentProduct={currentProduct} handleChange={handleChange} currMeta={currMeta}/>
@@ -218,7 +218,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
 
               <label>Your Review Body</label><br/>
               <textarea
-              rows="6" cols="50" maxlength="1000" minlength="50"
+              rows="6" cols="50" maxLength="1000" minLength="50"
               name="body"
               value={inputs.body || ""}
               onChange={handleChange}
@@ -266,7 +266,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
               </ModalHeader>
 
                 <ModalBody> */}
-                  <form>
+                  {/* <fxorm> */}
               <div>Add Image 1:<input type='text' name='picture_one' onChange={(e) => {
                 setImageOne(e.target.value);
                 handleChange(e);
@@ -308,7 +308,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
               </div>
 
               <button type='button' onClick={() => {setShowPicturesModal(false)}}>Done</button>
-              </form>
+              {/* </form> */}
               {/* </ModalBody>
                 </Modal> */}
                 </>

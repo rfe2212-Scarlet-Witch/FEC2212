@@ -30,14 +30,9 @@ app.post('/revs', function (req, res) {
 })
 
 app.post('/revPost', (req,res) => {
-  // console.log(req.body.packet);
-  let sendReview = sendReviews('/reviews', req.body.packet);
-  sendReview.then((data) => {
-    res.send(201);
-    console.log(data, 'sent');
-  }).catch((err) => {
-    console.log(err);
-  })
+  console.log(req.body.packet);
+  sendReviews('/reviews', req.body.packet);
+
 })
 
 app.post('/revsMeta', function (req, res) {
