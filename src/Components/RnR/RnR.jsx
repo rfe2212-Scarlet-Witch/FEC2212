@@ -28,7 +28,7 @@ var RnR = (props) => {
       maxWidth: "100%",
       maxHeight: "100%",
       // overflow: 'scroll',
-      border: "1px solid blue",
+      // border: "1px solid blue",
       flexGrow: 2
     },
     ReviewsLeft : {

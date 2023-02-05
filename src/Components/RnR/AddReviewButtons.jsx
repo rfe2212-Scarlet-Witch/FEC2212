@@ -71,7 +71,7 @@ var AddReviewButtons = ({currentProduct, handleChange, currMeta}) => {
     }
   }
 
-  var i = 0;
+  var i = 1;
 
   var [cs, setCs] = useState({})
 
@@ -98,7 +98,7 @@ var AddReviewButtons = ({currentProduct, handleChange, currMeta}) => {
           <div >
             {c}
             <fieldset onChange={(e) => {handleChangeHandler(e)}} >
-            <script>{i = 0}</script>
+            <script>{i = 1}</script>
             {listOfAttributes[c] ?
               listOfAttributes[c].map((phrase) => (
 
