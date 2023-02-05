@@ -30,7 +30,7 @@ app.post('/revs', function (req, res) {
 })
 
 app.post('/revPost', (req,res) => {
-  // console.log(req.body.packet);
+  console.log(req.body.packet);
   sendReviews('/reviews', req.body.packet);
 
 })

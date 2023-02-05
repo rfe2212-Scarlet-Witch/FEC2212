@@ -82,7 +82,7 @@ let updatePuts = (term) => {
 
 let sendReviews = (term, packet) => {
   axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe${term}`, {
-    product_id: parseInt(packet.product_id),
+    product_id: packet.product_id,
     rating: parseInt(packet.rating),
     summary: packet.summary,
     body: packet.body,
@@ -91,8 +91,12 @@ let sendReviews = (term, packet) => {
     email: packet.email,
     photos: packet.photos,
     characteristics: packet.characteristics
-  }).then(() => {
-    console.log('done')
+  }, {
+    headers: {
+      'Authorization' : config.TOKEN,
+    }
+  }).catch((err) => {
+    console.log(err)
   })
   // return axios(options);
 }

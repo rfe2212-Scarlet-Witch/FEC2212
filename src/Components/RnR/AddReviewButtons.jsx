@@ -89,24 +89,24 @@ var AddReviewButtons = ({currentProduct, handleChange, currMeta}) => {
       <>
       <div style={styles.currentSelection}>
         Current Selection:
-        {Object.values(cs).map((val) => (
-          <div>
+        {Object.values(cs).map((val, indy) => (
+          <div key={indy}>
             {val}
           </div>
         ))}
       </div>
-        {cc.map((c) => (
-          <div >
+        {cc.map((c, index) => (
+          <div key={index}>
             {c}
-            <fieldset onChange={(e) => {handleChangeHandler(e)}} key={currCharacteristics[c].id} >
-            <script>{i = 1}</script>
+            <fieldset onChange={(e) => {handleChangeHandler(e)}} key={index} >
+            <script key={index + 1}>{i = 1}</script>
             {listOfAttributes[c] ?
-              listOfAttributes[c].map((phrase) => (
+              listOfAttributes[c].map((phrase, ind) => (
 
-                <div>
-                <input  type="radio" id={phrase} value={i} name={currCharacteristics[c].id} key={currCharacteristics[c].id}></input>
-                <label htmlFor="size_one" >{phrase}</label>
-                <script>
+                <div key={ind}>
+                <input  type="radio" id={phrase} value={i} name={currCharacteristics[c].id} key={ind + 1}></input>
+                <label htmlFor="size_one" key={ind + 2}>{phrase}</label>
+                <script key={ind}>
                 {i++}
                 </script>
                 </div>))
