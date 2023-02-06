@@ -67,8 +67,8 @@ var SortedReviews = (props) => {
   return (
     <>
     <div>
-    {toRender.map((render) => (
-        <ListItem style={styles.ListItem} key={render.review_id}><ReviewTile renderThis={render} key={render.review_id}/></ListItem>
+    {toRender.map((render, index) => (
+        <ListItem style={styles.ListItem} key={render.review_id}><ReviewTile renderThis={render} key={index}/></ListItem>
      ))
     }
     </div>
