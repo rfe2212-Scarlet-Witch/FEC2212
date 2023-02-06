@@ -100,12 +100,10 @@ function OVProdInfo (props) {
     document.getElementById("select-size").removeAttribute('disabled');
     document.getElementById('default').setAttribute('disabled', true);
     document.getElementById('cart').removeAttribute('hidden', true);
-    if (!document.getElementById('select-size').value) {
-      // console.log('no size selected');
-    }
+
     //if size is selected and no amount selected, default to 1 quantity
     if (document.getElementById('select-size').value && !document.getElementById('select-amount').value) {
-      document.getElementById("default-size").setAttribute('disabled', true);
+      // document.getElementById("default-size").setAttribute('disabled', true);
       document.getElementById('select-amount').value = 0;
     }
     font = 'SELECT SIZE'; //this line changes the text inside of the size selector

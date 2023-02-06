@@ -3,12 +3,30 @@
 // }
 
 
-body {
+// body {
+//   margin-top: 0px;
+//   margin-right: 150px;
+//   margin-left: 150px;
+//   padding: 0px;
+//   background-color: white;
+//   font-family: system-ui;
+// }
+
+#body {
   margin-top: 0px;
   margin-right: 150px;
   margin-left: 150px;
   padding: 0px;
   background-color: white;
+  font-family: system-ui;
+}
+
+.night-body {
+  margin-top: 0px;
+  margin-right: 150px;
+  margin-left: 150px;
+  padding: 0px;
+  background-color: black;
   font-family: system-ui;
 }
 
@@ -311,6 +329,19 @@ h1 {
   height: 500px;
   width: 75px;
   outline-width: 50px;
+  z-index: 2;
+}
+
+#carousel-up {
+  position: absolute;
+  left: 57px;
+  top: 0px;
+  z-index: 1;
+}
+
+#carousel-down {
+  position: absolute;
+  left: 57px;
   z-index: 2;
 }
 

@@ -8,16 +8,21 @@ const axios = require('axios');
 
 function Overview (props) {
 
-
-
-
-
+  const handleClick = () => {
+    let temp = document.getElementById('body');
+    if (temp) {
+      temp.setAttribute('id', 'night-body');
+    }
+  }
 
   return (
     <div>
       <div id="header">
         <strong id='title'>
           BIZARRE BAZAAR
+        </strong>
+        <strong id='toggle-mode' onClick={handleClick}>
+          toggle dark mode
         </strong>
       </div>
       <div id="message">
@@ -33,18 +38,3 @@ function Overview (props) {
 
 export default Overview;
 
-// <div id='Overview'>
-//       <strong className='text'>
-//         {props.currProd.name}
-//       </strong>
-//       <section>
-//         <div currStyles={props.currStyles} >
-//           <OVImages displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
-//         </div>
-//       </section>
-//       <aside id='Styles'>
-//       {props.currStyles.map((style, index) => {
-//         return <OVStyle currStyles={props.currStyles} changeStyles={props.changeStyles} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle} style={style} key={index} id={index}/>
-//       })}
-//       </aside>
-//     </div>
