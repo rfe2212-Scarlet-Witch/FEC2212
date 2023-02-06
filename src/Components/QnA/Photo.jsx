@@ -20,6 +20,7 @@ let Photo = ({img}) => {
       >
         <img src={img}
           className="bigpic"
+          onClick={() => setShowModal(!showModal)}
         />
     </Modalpicture>
   </>
