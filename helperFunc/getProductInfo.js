@@ -103,9 +103,23 @@ let sendReviews = (term, packet) => {
   // return axios(options);
 }
 
+let updatePosts = (term, body) => {
+  let options = {
+    method: 'POST',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe${term}`,
+    headers: {
+      Authorization: config.TOKEN,
+    },
+    data: body
+  };
+
+  return axios(options);
+}
+
 module.exports.getProductInfo = getProductInfo;
 module.exports.getProductReviews = getProductReviews;
 module.exports.getProductReviewsMeta = getProductReviews;
 module.exports.getProductQuestions = getProductQuestions;
 module.exports.updatePuts = updatePuts;
 module.exports.sendReviews = sendReviews;
+module.exports.updatePosts = updatePosts;
