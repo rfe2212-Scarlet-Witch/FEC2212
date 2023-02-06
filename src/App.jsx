@@ -25,11 +25,11 @@ function App() {
     })
     .then((data) => {
       changeProducts(data.data);//update the current products
-      changeProd(data.data[18]);//update the currently displayed product, defaults to first on page load.
+      changeProd(data.data[0]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[18].id}/styles`,
+        term: `/products/${data.data[0].id}/styles`,
       })
       .then((data) => {
         changeStyles(data.data.results); //update the current styles for the currently displayed product
@@ -92,8 +92,8 @@ function App() {
   //console.log(currQuestions)
   return (
     <div className="app">
-      <DarkMode />
       <Overview currMeta={currMeta} displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
+      <DarkMode />
       <QnA currProd={currProd} currQuestions={currQuestions}/>
       <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
     </div>
