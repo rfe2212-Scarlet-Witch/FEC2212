@@ -105,7 +105,7 @@ var Scales = (props) => {
       position: 'relative',
       width: '100%',
       height: '30px',
-      // border: '1px solid red',
+      border: '1px solid black',
       order: 1,
       // flexGrow: 3
     },

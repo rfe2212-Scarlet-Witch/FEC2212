@@ -24,13 +24,13 @@ app.post('/revs', function (req, res) {
   productData.then((data) => {
     res.status(201).send(data.data);
   }).catch((err) => {
-    console.log('error communicating with API', err);
+    // console.log('error communicating with API', err);
   })
 
 })
 
 app.post('/revPost', (req,res) => {
-  console.log(req.body.packet);
+  // console.log(req.body.packet);
   sendReviews('/reviews', req.body.packet);
 
 })
@@ -41,7 +41,7 @@ app.post('/revsMeta', function (req, res) {
   productData.then((data) => {
     res.status(201).send(data.data);
   }).catch((err) => {
-    console.log('error communicating with API', err);
+    // console.log('error communicating with API', err);
   })
 
 })

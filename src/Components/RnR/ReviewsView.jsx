@@ -26,6 +26,7 @@ var ReviewsView = (props) => {
     ReviewsView : {
       // border: '3px solid red',
       width: '100%',
+      minWidth: '600px',
       height: '95%',
     },
     SortedReviews : {

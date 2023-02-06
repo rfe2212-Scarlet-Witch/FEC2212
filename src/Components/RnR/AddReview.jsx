@@ -6,7 +6,9 @@ import ReviewForm from './ReviewForm.jsx'
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '../SharedComponents/Modal.jsx'
 import Rating from '@mui/material/Rating'
 import AddReviewButtons from './AddReviewButtons.jsx'
+import AddImages from './AddImages.jsx'
 const axios = require('axios');
+
 
 
 
@@ -27,16 +29,20 @@ var AddReview = ({title, currentProduct, currMeta}) => {
   const [image_four, setImageFour] = useState(null);
   const [image_five, setImageFive] = useState(null);
 
+  const [rated, setRated] = useState(false);
 
 
 
 
+
+  const [isChecked, setIsChecked] = useState(false);
   const [inputs, setInputs] = useState({});
   const [hover, setHover] = useState(-1);
   const [size, setSize] = useState('')
   const [comfort, setComfort] = useState('')
   const [fit, setFit] = useState('')
   const [images, setImages] = useState([]);
+  const [minReached, setMinReached] = useState(false);
 
   var toSend = {}
 
@@ -88,6 +94,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
       //make axios request to post
       // term should be POST /qa/questions
       inputs.product_id = currentProduct.id
+      inputs.recommend = isChecked;
       event.preventDefault();
       preparePacket(inputs);
       // console.log('sending', toSend);
@@ -95,7 +102,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
       axios.post('/revPost', {
         packet: toSend
       }).then(() => {
-        console.log(inputs)
+        // console.log(inputs)
         setShowModal(false);
 
       })
@@ -129,7 +136,6 @@ var AddReview = ({title, currentProduct, currMeta}) => {
 
   }
 
-  const [isChecked, setIsChecked] = useState(false);
 
   const recommendHandler = () => {
     // console.log('inputs', inputs)
@@ -162,28 +168,28 @@ var AddReview = ({title, currentProduct, currMeta}) => {
       height: '100%'
     },
     Images: {
-      width: '50px',
-      height: '50px'
+      width: '30%',
+      height: '30%'
+    },
+    Red : {
+      color: 'red'
     }
   }
 
-  //125075 Comfort
-  //125073 Fit
-  //125074 Length
-  //125076 Quality
-  //125060 Size
-  //125061 Width
+  var [sumCharCounter, setSumCharCounter] = useState(0)
+
+
 
   var checkmark = true;
   return (
   <>
-  <button onClick={() => setShowModal(true)}>
+  <Button onClick={() => setShowModal(true)}>
     Add Review +
-  </button>
+  </Button>
   <Modal show={showModal} setShow={setShowModal} style={styles.Modal}>
   <ModalHeader>
         <h2 style={{ "marginTop": "0px",
-        "marginBottom": "4px"}}>Ask Your Question</h2>
+        "marginBottom": "4px"}}>Review This Product</h2>
         <h4 style={{"marginTop": "0px", "marginBottom": "0px"}}
         >About {currentProduct.name}</h4>
       </ModalHeader>
@@ -191,15 +197,32 @@ var AddReview = ({title, currentProduct, currMeta}) => {
 
         <form id="form3" onSubmit={handleSubmit}>
 
+              <div>
+                {sumCharCounter >= 50 ? <div>Minimum Reached</div> : <div>Minimum Required Characters Left: {50 - sumCharCounter}</div>}
+              </div>
+
+              <label>Your Review Body</label><br/>
+              <textarea
+              rows="20" cols="55" maxLength="1000" minLength="50"
+              name="body"
+              value={inputs.body || ""}
+              onChange={(e) => {
+                handleChange(e);
+                setSumCharCounter(e.target.value.length)
+              }}
+              required
+              /><br/>
+
+              <div>{!rated ? <div style={styles.Red}>Please Select a Rating</div> : null}</div>
               {/* Star Rating */}
               <label> Leave a Star Rating </label>
               <div>
-                <Rating name="rating" onChange={handleChange} onChangeActive={(e, val) => {setHover(val)}}/>
+                <Rating name="rating" onChange={handleChange} onChangeActive={(e, val) => {setHover(val)}} onClick={() => {setRated(true)}} required />
                 <div>{hover !== -1 ? labels[hover]: null}</div>
               </div>
-              <br/>
+              {/* <br/> */}
               {/* <label>About The {currentProduct.name}</label> */}
-              <br/>
+              {/* <br/> */}
 
               <input type='checkbox' name="recommend"id="reco" onChange={recommendHandler}></input>
               <label htmlFor="reco">Do You Recommend This Product</label>
@@ -216,14 +239,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
               required
               /><br/>
 
-              <label>Your Review Body</label><br/>
-              <textarea
-              rows="6" cols="50" maxLength="1000" minLength="50"
-              name="body"
-              value={inputs.body || ""}
-              onChange={handleChange}
-              required
-              /><br/>
+
 
               <label>What is your nickname</label><br/>
               <input type="text"
@@ -257,61 +273,25 @@ var AddReview = ({title, currentProduct, currMeta}) => {
                 Add Images
               </button>
 
+
+              <AddImages
+              show={showPicturesModal}
+              setShow={setShowPicturesModal}
+              style={styles.modal}
+              setImageOne={setImageOne}
+              setImageTwo={setImageTwo}
+              setImageThree={setImageThree}
+              setImageFour={setImageFour}
+              setImageFive={setImageFive}
+              handleChange={handleChange}
+              image_one={image_one}
+              image_two={image_two}
+              image_three={image_three}
+              image_four={image_four}
+              image_five={image_five}
+              />
               {/* {showPicturesModal ? */}
-              <>
-              {/* <Modal show={showPicturesModal} setShow={setShowPicturesModal} style={styles.modal}>
-              <ModalHeader>
-              <h2 style={{ "marginTop": "0px",
-              "marginBottom": "4px"}}>Add Images</h2>
-              </ModalHeader>
 
-                <ModalBody> */}
-                  {/* <fxorm> */}
-              <div>Add Image 1:<input type='text' name='picture_one' onChange={(e) => {
-                setImageOne(e.target.value);
-                handleChange(e);
-                }}></input></div>
-                <div>
-              {/* {(image_one ? <img src={image_one}></img> : null)} */}
-              </div>
-
-              <div>Add Image 2:<input type='text' name='picture_two' onChange={(e) => {
-                setImageTwo(e.target.value);
-                handleChange(e);
-                }}></input></div>
-                <div>
-              {/* {(image_two ? <img src={image_one}></img> : null)} */}
-              </div>
-
-              <div>Add Image 3:<input type='text' name='picture_three' onChange={(e) => {
-                setImageThree(e.target.value);
-                handleChange(e);
-                }}></input></div>
-                <div>
-              {/* {(image_three ? <img src={image_three}></img> : null)} */}
-              </div>
-
-              <div>Add Image 4:<input type='text' name='picture_four' onChange={(e) => {
-                setImageFour(e.target.value);
-                handleChange(e);
-                }}></input></div>
-                <div>
-              {/* {(image_four ? <img src={image_four}></img> : null)} */}
-              </div>
-
-              <div>Add Image 5:<input type='text' name='picture_five' onChange={(e) => {
-                setImageFive(e.target.value);
-                handleChange(e);
-                }}></input></div>
-                <div>
-              {/* {(image_four ? <img src={image_five}></img> : null)} */}
-              </div>
-
-              <button type='button' onClick={() => {setShowPicturesModal(false)}}>Done</button>
-              {/* </form> */}
-              {/* </ModalBody>
-                </Modal> */}
-                </>
 
               {/* : null} */}
               <div>
@@ -327,9 +307,12 @@ var AddReview = ({title, currentProduct, currMeta}) => {
           <button onClick={() => setShowModal(false)}>
               Close
           </button>
+          { minReached ?
           <button variant="primary"
           type="submit" form="form3" value="Submit"
-          onSubmit={handleSubmit} >Submit</button>
+          onSubmit={handleSubmit} onClick={() => setShowModal(false)}>Submit</button>
+          : null
+          }
       </ModalFooter>
   </Modal>
 </>

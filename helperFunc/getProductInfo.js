@@ -61,7 +61,7 @@ let getProductQuestions = (term, product_id) => {
     },
     params: {
       product_id: product_id,
-      count: 500
+      count: 200
     }
   };
 
@@ -82,7 +82,7 @@ let updatePuts = (term) => {
 
 let sendReviews = (term, packet) => {
   axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe${term}`, {
-    product_id: packet.product_id,
+    product_id: parseInt(packet.product_id),
     rating: parseInt(packet.rating),
     summary: packet.summary,
     body: packet.body,
@@ -95,23 +95,12 @@ let sendReviews = (term, packet) => {
     headers: {
       'Authorization' : config.TOKEN,
     }
+  }).then(() => {
+    console.log('done')
   }).catch((err) => {
-    console.log(err)
+    throw err
   })
   // return axios(options);
-}
-
-let updatePosts = (term, body) => {
-  let options = {
-    method: 'POST',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe${term}`,
-    headers: {
-      Authorization: config.TOKEN,
-    },
-    data: body
-  };
-
-  return axios(options);
 }
 
 module.exports.getProductInfo = getProductInfo;
@@ -119,5 +108,4 @@ module.exports.getProductReviews = getProductReviews;
 module.exports.getProductReviewsMeta = getProductReviews;
 module.exports.getProductQuestions = getProductQuestions;
 module.exports.updatePuts = updatePuts;
-module.exports.updatePosts = updatePosts;
 module.exports.sendReviews = sendReviews;
