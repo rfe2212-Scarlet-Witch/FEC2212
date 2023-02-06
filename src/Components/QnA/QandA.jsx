@@ -1,22 +1,24 @@
-import React from 'react';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useState, useEffect}from 'react';
 import QuestionList from './QuestionList.jsx';
 import Search from './Search.jsx';
 
 const QnA = ({currQuestions, currProd}) => {
 
-  const filter = currQuestions.filter( (question) => {
+  let filter = currQuestions.filter((question) => {
     return Object.keys(question.answers).length > 0;
   })
 
+  const [list, setList] = useState([]);
 
+  useEffect(() => {
+    setList(filter)
+  }, [currQuestions])
 
   return (
     <div>
       <h3>Questions & Answers</h3>
-      <Search />
-      <QuestionList qs={filter} prodId={currProd.id} prodName={currProd.name}/>
+      <Search qs={list} setter={setList} sort={filter} all={currQuestions}/>
+      <QuestionList qs={list} prodId={currProd.id} prodName={currProd.name}/>
     </div>
   )
 };

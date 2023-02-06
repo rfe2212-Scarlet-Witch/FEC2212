@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '../SharedComponents/Modal.jsx';
+import axios from 'axios';
 
 
-function AddQuestion({prodId, prodName}) {
+function AddQuestion({prodId, prodName, addQ}) {
   const [showModal, setShowModal] = useState(false);
   const [inputs, setInputs] = useState({});
 
@@ -11,9 +12,13 @@ function AddQuestion({prodId, prodName}) {
       // term should be POST /qa/questions
       inputs.product_id = prodId
       event.preventDefault();
-      console.log(inputs)
+      axios.post('/posts', {
+        term: '/qa/questions',
+        body: inputs
+      })
+      //console.log(inputs)
       setShowModal(false);
-
+      addQ(prior => [inputs, ...prior])
   };
 
   const handleChange = (event) => {

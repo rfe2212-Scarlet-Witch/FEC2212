@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import Modal, { ModalBody, ModalFooter, ModalHeader } from '../SharedComponents/Modal.jsx';
+import axios from 'axios';
+import AddPhotos from './AddPhotos.jsx'
 
-function AddAnswer({prodId, prodName, question}) {
+function AddAnswer({prodId, prodName, question, questionId}) {
   const [showModal, setShowModal] = useState(false);
   const [inputs, setInputs] = useState({});
+  const [images, setImages] = useState([]);
 
   const handleSubmit = (event) => {
-      //make axios request to post
-      // term should be POST /qa/questions
-      // inputs.product_id = prodId
       event.preventDefault();
-      console.log(inputs)
-      setShowModal(false);
-
+      inputs.photos = images;
+      //console.log(inputs)
+      axios.post('/posts', {
+        term: `/qa/questions/${questionId}/answers`,
+        body: inputs
+      })
+      .then(() => {
+        setShowModal(false);
+        setInputs({});
+        setImages([]);
+      })
   };
 
   const handleChange = (event) => {
@@ -71,7 +79,17 @@ function AddAnswer({prodId, prodName, question}) {
                placeholder="Example: jack@email.com" /><br/>
               <span className="text-muted">
                 For authentication reasons, you will not be emailed
-              </span>
+              </span><br/>
+
+              {images.length === 5 ? null : <AddPhotos images= {images}change={setImages}/>}
+              <br/>
+              {images.map((image, index) => {
+                return <img className="answerthumbnail"
+                src={image} key={index}
+                onClick={() => {let b = images.filter((a,i) => i!==index); setImages(b); }}
+                width="80px" height="60px"
+                ></img>
+              })}
 
         </form>
       </ModalBody>
