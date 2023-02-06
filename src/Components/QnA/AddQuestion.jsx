@@ -29,8 +29,9 @@ function AddQuestion({prodId, prodName, addQ}) {
 
   return (
   <>
-  <button onClick={() => setShowModal(true)}>
-    Add Question +
+  <button onClick={() => setShowModal(true)}
+    className="qnabtn" style={{"marginLeft": "20px"}}>
+    ADD QUESTION +
   </button>
   <Modal
       show={showModal}
@@ -45,8 +46,9 @@ function AddQuestion({prodId, prodName, addQ}) {
       <ModalBody>
         <form id="form1" onSubmit={handleSubmit}>
 
-              <label>Your Question</label><br/>
+              <label className="required">Your Question</label><br/>
               <textarea
+
               rows="6" cols="50" maxLength="1000"
               name="body"
               value={inputs.body || ""}
@@ -54,9 +56,8 @@ function AddQuestion({prodId, prodName, addQ}) {
               required
               /><br/>
 
-              <label>What is your nickname</label><br/>
+              <label className="required">What is your nickname</label><br/>
               <input type="text"
-               className="modal-input"
                name="name"
                value={inputs.name || ""}
                onChange={handleChange}
@@ -67,9 +68,8 @@ function AddQuestion({prodId, prodName, addQ}) {
               For privacy reasons, do not use your full name or email address
               </span><br/>
 
-              <label>Email address</label><br/>
+              <label className="required" >Email address</label><br/>
               <input type="email"
-               className="modal-input"
                name="email"
                value={inputs.email || ""}
                onChange={handleChange}

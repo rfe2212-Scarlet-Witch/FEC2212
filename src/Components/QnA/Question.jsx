@@ -7,9 +7,12 @@ const Question = ({q, index, length, prodName, prodId}) => {
 
   return index > length ? null : (
     <div>
-      <div className="question"> Q: {q.question_body}
-      <Helpful id={q.question_id}
-      count={q.question_helpfulness} type="questions"/> | <AddAnswer prodId={prodId} prodName={prodName} question={q.question_body} questionId={q.question_id}/> </div>
+      <div className="question"> <span className="title" >Q: {q.question_body} </span>
+        <span className="text-muted2" >
+          <Helpful id={q.question_id}
+          count={q.question_helpfulness} type="questions"/> | <AddAnswer prodId={prodId} prodName={prodName} question={q.question_body} questionId={q.question_id}/>
+        </span>
+      </div>
       <AnswerList ansList={Object.values(q.answers)}/>
     </div>
   )

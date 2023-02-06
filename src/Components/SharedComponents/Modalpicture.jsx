@@ -16,10 +16,10 @@ const Modalpicture = props => {
         };
     }, [props]);
 
-    return <div ref={modalRef} className={`modal ${props.show ? 'active' : ''}`}>
-        <div className="modal__pic">
+    return <div ref={modalRef} className={`pmodal ${props.show ? 'active' : ''}`}>
+        <div className="pmodal__pic">
             {
-                !props.hideCloseButton && <span onClick={() => props.setShow(false)} className="modal__close">
+                !props.hideCloseButton && <span onClick={() => props.setShow(false)} className="pmodal__close">
                     &times;
                 </span>
             }
@@ -31,19 +31,19 @@ const Modalpicture = props => {
 export default Modalpicture;
 
 export const ModalHeader = props => {
-    return <div className="modal__header">
+    return <div className="pmodal__header">
         {props.children}
     </div>
 }
 
 export const ModalBody = props => {
-    return <div className="modal__body">
+    return <div className="pmodal__body">
         {props.children}
     </div>
 }
 
 export const ModalFooter = props => {
-    return <div className="modal__footer">
+    return <div className="pmodal__footer">
         {props.children}
     </div>
 }

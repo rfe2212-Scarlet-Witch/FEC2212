@@ -37,7 +37,7 @@ const AnswerList = ({ansList}) => {
 
   const clickHandler = () => {
     setAnsLength(40);
-    setText('Collapse List')
+    setText('COLLAPSE LIST')
     setClick(!clicked);
   }
 
@@ -48,17 +48,16 @@ const AnswerList = ({ansList}) => {
   }
 
   let Button = () => {
-    return clicked ? ( <button onClick={() => {clickHandler2()}}>{text}</button>
-    ) : (<button onClick={() => {clickHandler()}}>{text}</button>)
+    return clicked ? ( <span  className="ans" onClick={() => {clickHandler2()}}><span className="txtbtn">{text}</span></span>
+    ) : (<span className="ans" onClick={() => {clickHandler()}}><span className="txtbtn">{text}</span></span>)
   }
 
   return (
-    <span>
-      A:  {masterList.map((item, index) => {
+    <div className="answerList"> {masterList.map((item, index) => {
         return <Answer ans={item} key={item.id} index={index} className="answer" length={ansLength} seller={item.seller}/>
       })}
       { ((sortedList.length - 1 <= ansLength) && (!clicked))? null : <Button />}
-    </span>
+    </div>
   )
 }
 
