@@ -16,7 +16,7 @@ function App() {
   const [currReviews, setCurrReviews] = useState([]); //All reviews for the current product
   const [currMeta, setCurrMeta] = useState([]);
   const [currQuestions, setCurrQuestions] = useState([]);
-  const [reviewsSort, setReviewsSort] = useState('newest');
+  const [reviewsSort, setReviewsSort] = useState('relevant');
   const [render, reRender] = useState([]);
 
   useEffect(() => {
@@ -25,11 +25,11 @@ function App() {
     })
     .then((data) => {
       changeProducts(data.data);//update the current products
-      changeProd(data.data[8]);//update the currently displayed product, defaults to first on page load.
+      changeProd(data.data[18]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[8].id}/styles`,
+        term: `/products/${data.data[18].id}/styles`,
       })
       .then((data) => {
         changeStyles(data.data.results); //update the current styles for the currently displayed product

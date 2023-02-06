@@ -45,11 +45,11 @@ var RnR = (props) => {
       justifyContent: "row",
       // border: "1px solid black",
       justifyContent: "space-evenly",
-      borderRadius: '10px'
+      borderRadius: '15px'
 
     },
     box: {
-      border: "1px solid red"
+      // border: "1px solid red"
     }
   }
 
@@ -64,8 +64,10 @@ var RnR = (props) => {
                 <Stars  allReviews={currReviews} filters={filters} setFilters={setFilters} currMeta={currMeta}/>
                 <Scales currMeta={currMeta}/>
               </div>
-            <div style={styles.ReviewsRight}>
-              <ReviewsView allReviews={currReviews} filters={filters} setFilters={setFilters} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
+              <div>
+              <div style={styles.ReviewsRight}>
+                <ReviewsView allReviews={currReviews} filters={filters} setFilters={setFilters} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
+              </div>
               <div>
                 <AddReview title={'Add Review'} currentProduct={currentProduct} currMeta={currMeta}/>
               </div>

@@ -104,7 +104,7 @@ var AddReviewButtons = ({currentProduct, handleChange, currMeta}) => {
               listOfAttributes[c].map((phrase, ind) => (
 
                 <div key={ind}>
-                <input  type="radio" id={phrase} value={i} name={currCharacteristics[c].id} key={ind + 1}></input>
+                <input  type="radio" id={phrase} value={i} name={currCharacteristics[c].id} key={ind + 1} required></input>
                 <label htmlFor="size_one" key={ind + 2}>{phrase}</label>
                 <script key={ind}>
                 {i++}
