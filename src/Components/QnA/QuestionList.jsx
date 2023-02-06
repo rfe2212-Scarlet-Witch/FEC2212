@@ -21,7 +21,7 @@ const QuestionList = ({qs, prodId, prodName}) => {
       {qs.map((q, index) => {
         return <Question q={q} key={q.question_id} index={index} length={questionsLength} prodId={prodId} prodName={prodName}/>
       })}
-      {qs.length - 1 <= questionsLength ? null : <button onClick={() => clickHandler()}>MORE ANSWERED QUESTIONS</button> }
+      {qs.length - 1 <= questionsLength ? null : <button className="qnabtn" onClick={() => clickHandler()}>MORE ANSWERED QUESTIONS</button> }
       <AddQuestion prodId={prodId} prodName={prodName} addQ={setFinalQuestionList} finalList={finalQuestionList}/>
     </div>
   )

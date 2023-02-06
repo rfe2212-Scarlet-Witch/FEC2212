@@ -11,11 +11,11 @@ const Answer = ({ans, index, length, seller}) => {
   let mo = moment(ans.date).format("MMMM Do YYYY");
 
   return index > length ? null : (
-    <>
-      {index === 0 ? <span className="firstanswer">{ans.body}</span> :
-      <p className="answerBody">{ans.body}</p>}
-      <div>
-        <div>
+    <div className="anstile">
+      {index === 0 ? <span className="firstanswer">A: {ans.body}</span> :
+      <p className="answerBody" style={{"marginLeft": "25px"}}>{ans.body}</p>}
+      <div className="text-muted2" style={{"marginLeft": "25px"}}>
+        <div style={{"marginBottom": "10px", }}>
           {ans.photos.map((img, index) => {return <Photo img={img} key={index}/>})}
         </div>
         <span className="answerUser">
@@ -26,7 +26,7 @@ const Answer = ({ans, index, length, seller}) => {
           type="answers"/> |
         <Report id={ans.id} type="answers"/>
       </div>
-    </>
+    </div>
   )
 }
 

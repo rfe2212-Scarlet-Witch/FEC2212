@@ -24,7 +24,7 @@ let Helpful = ({id, count, type}) => {
 
   return (
     <>
-    <span> Helpful?  <u onClick={() => clickHandler()}>Yes</u> ({help}) </span>
+    <span> Helpful?  <u onClick={() => clickHandler()} className="txtbtn">Yes</u> ({help}) </span>
     </>
   )
 }
