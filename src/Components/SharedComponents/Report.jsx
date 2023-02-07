@@ -20,7 +20,7 @@ let Report = ({id, type}) => {
 
   return (
     <>
-    <span onClick={clickHandler}> <u>{re}</u> </span>
+    <span onClick={clickHandler}  className="txtbtn"> <u>{re}</u> </span>
     </>
   )
 }

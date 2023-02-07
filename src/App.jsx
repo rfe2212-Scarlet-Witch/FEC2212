@@ -3,8 +3,8 @@ import './index.scss';
 import Overview from './Components/Overview.jsx';
 import QnA from './Components/QnA/QandA.jsx'
 import RnR from './Components/RnR/RnR.jsx'
-//import for reviews
 const axios = require('axios');
+import DarkMode from './Components/SharedComponents/DarkMode.jsx'
 
 function App() {
 
@@ -25,11 +25,11 @@ function App() {
     })
     .then((data) => {
       changeProducts(data.data);//update the current products
-      changeProd(data.data[2]);//update the currently displayed product, defaults to first on page load.
+      changeProd(data.data[0]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[2].id}/styles`,
+        term: `/products/${data.data[0].id}/styles`,
       })
       .then((data) => {
         changeStyles(data.data.results); //update the current styles for the currently displayed product
@@ -107,6 +107,7 @@ function App() {
   return (
     <div className="app">
       <Overview currMeta={currMeta} displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
+      <DarkMode />
       <QnA currProd={currProd} currQuestions={currQuestions}/>
       <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
     </div>
