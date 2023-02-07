@@ -3,8 +3,8 @@ import './index.scss';
 import Overview from './Components/Overview.jsx';
 import QnA from './Components/QnA/QandA.jsx'
 import RnR from './Components/RnR/RnR.jsx'
-//import for reviews
 const axios = require('axios');
+import DarkMode from './Components/SharedComponents/DarkMode.jsx'
 
 function App() {
 
@@ -93,6 +93,7 @@ function App() {
   return (
     <div className="app">
       <Overview currMeta={currMeta} displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
+      <DarkMode />
       <QnA currProd={currProd} currQuestions={currQuestions}/>
       <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
     </div>
