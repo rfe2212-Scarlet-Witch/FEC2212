@@ -98,7 +98,7 @@ var fullScreenImage = () => {
 //
   return (
     <>
-    <Card style={styles.card} raised={true}>
+    <Card id='reviewCard' style={styles.card} raised={true}>
       <div style={styles.reviewTime}>
         <div style={styles.ReviewTileRating}>
           <Rating readOnly={true} precision={1/4} value={renderThis.rating} size={'small'}/>

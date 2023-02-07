@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for FEC2212/src/Components/QnA/QandA.jsx</title>
+    <title>Code coverage report for FEC2212/src/Components/QnA/QuestionList.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">FEC2212/src/Components/QnA</a> QandA.jsx</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">FEC2212/src/Components/QnA</a> QuestionList.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -88,57 +88,69 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {useState, useEffect}from 'react';
-import QuestionList from './QuestionList.jsx';
-import Search from './Search.jsx';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import Question from './Question.jsx';
+import {useState, useEffect} from 'react';
+import AddQuestion from './AddQuestion.jsx'
 &nbsp;
-const QnA = ({currQuestions, currProd}) =&gt; {
+const QuestionList = ({qs, prodId, prodName}) =&gt; {
 &nbsp;
-  let filter = currQuestions.filter(<span class="fstat-no" title="function not covered" >(q</span>uestion) =&gt; {
-<span class="cstat-no" title="statement not covered" >    return Object.keys(question.answers).length &gt; 0;</span>
-  })
-&nbsp;
-  const [list, setList] = useState([]);
+  const [questionsLength, setQuestionsLength] = useState (1);
+  const[finalQuestionList, setFinalQuestionList] = useState([])
 &nbsp;
   useEffect(() =&gt; {
-    setList(filter)
-  }, [currQuestions])
+    setFinalQuestionList(qs)
+  },[qs])
+&nbsp;
+  const clickHandler = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    setQuestionsLength(questionsLength + 2)</span>
+  }
 &nbsp;
   return (
-    &lt;div&gt;
-      &lt;h3&gt;Questions &amp; Answers&lt;/h3&gt;
-      &lt;Search qs={list} setter={setList} sort={filter} all={currQuestions}/&gt;
-      &lt;QuestionList qs={list} prodId={currProd.id} prodName={currProd.name}/&gt;
+    &lt;div className="container"&gt;
+      {qs.map(<span class="fstat-no" title="function not covered" >(q</span>, index) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return &lt;Question q={q} key={q.question_id} index={index} length={questionsLength} prodId={prodId} prodName={prodName}/&gt;</span>
+      })}
+      {qs.length - 1 &lt;= questionsLength ? null : <span class="branch-1 cbranch-no" title="branch not covered" >&lt;button className="qnabtn" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >clickHandler()}</span>&gt;MORE ANSWERED QUESTIONS&lt;/button&gt; </span>}
+      &lt;AddQuestion prodId={prodId} prodName={prodName} addQ={setFinalQuestionList} finalList={finalQuestionList}/&gt;
     &lt;/div&gt;
   )
-};
+}
 &nbsp;
-export default QnA;</pre></td></tr></table></pre>
+export default QuestionList;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

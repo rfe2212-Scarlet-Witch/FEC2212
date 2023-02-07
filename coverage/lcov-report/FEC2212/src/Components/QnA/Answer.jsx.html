@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for FEC2212/src/Components/QnA/QandA.jsx</title>
+    <title>Code coverage report for FEC2212/src/Components/QnA/Answer.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">FEC2212/src/Components/QnA</a> QandA.jsx</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">FEC2212/src/Components/QnA</a> Answer.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -88,23 +88,32 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,32 +122,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {useState, useEffect}from 'react';
-import QuestionList from './QuestionList.jsx';
-import Search from './Search.jsx';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import Helpful from '../SharedComponents/Helpful.jsx';
+import Report from '../SharedComponents/Report.jsx';
+import moment from 'moment';
+import {useState} from 'react';
+import Photo from './Photo.jsx';
 &nbsp;
-const QnA = ({currQuestions, currProd}) =&gt; {
+const Answer = <span class="fstat-no" title="function not covered" >({</span>ans, index, length, seller}) =&gt; {
 &nbsp;
-  let filter = currQuestions.filter(<span class="fstat-no" title="function not covered" >(q</span>uestion) =&gt; {
-<span class="cstat-no" title="statement not covered" >    return Object.keys(question.answers).length &gt; 0;</span>
-  })
 &nbsp;
-  const [list, setList] = useState([]);
+  let mo = <span class="cstat-no" title="statement not covered" >moment(ans.date).format("MMMM Do YYYY");</span>
 &nbsp;
-  useEffect(() =&gt; {
-    setList(filter)
-  }, [currQuestions])
-&nbsp;
-  return (
-    &lt;div&gt;
-      &lt;h3&gt;Questions &amp; Answers&lt;/h3&gt;
-      &lt;Search qs={list} setter={setList} sort={filter} all={currQuestions}/&gt;
-      &lt;QuestionList qs={list} prodId={currProd.id} prodName={currProd.name}/&gt;
+<span class="cstat-no" title="statement not covered" >  return index &gt; length ? null : (</span>
+    &lt;div className="anstile"&gt;
+      {index === 0 ? &lt;span className="firstanswer"&gt;A: {ans.body}&lt;/span&gt; :
+      &lt;p className="answerBody" style={{"marginLeft": "25px"}}&gt;{ans.body}&lt;/p&gt;}
+      &lt;div className="text-muted2" style={{"marginLeft": "25px"}}&gt;
+        &lt;div style={{"marginBottom": "10px", }}&gt;
+          {ans.photos.map(<span class="fstat-no" title="function not covered" >(i</span>mg, index) =&gt; {<span class="cstat-no" title="statement not covered" >return &lt;Photo img={img} key={index}/&gt;}</span>)}
+        &lt;/div&gt;
+        &lt;span className="answerUser"&gt;
+          by {seller ? &lt;strong&gt;Seller&lt;/strong&gt; : ans.answerer_name},  {mo} |
+        &lt;/span&gt;
+        &lt;Helpful id={ans.id}
+          count={ans.helpfulness}
+          type="answers"/&gt; |
+        &lt;Report id={ans.id} type="answers"/&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   )
-};
+}
 &nbsp;
-export default QnA;</pre></td></tr></table></pre>
+export default Answer;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

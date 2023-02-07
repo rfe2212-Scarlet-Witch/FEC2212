@@ -29,7 +29,7 @@ function App() {
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[11].id}/styles`,
+        term: `/products/${data.data[18].id}/styles`,
       })
       .then((data) => {
         changeStyles(data.data.results); //update the current styles for the currently displayed product
@@ -52,7 +52,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-
+    if (!Array.isArray(currProd)) {
       axios.post('/revs', {
         term: '/reviews/',
         product_id: currProd.id,
@@ -76,6 +76,8 @@ function App() {
       .catch((err) => {
         throw err;
       });
+    }
+
 
   }, [reviewsSort, currProd])
 

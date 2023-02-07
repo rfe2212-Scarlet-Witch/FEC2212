@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for FEC2212/src/Components/QnA/QandA.jsx</title>
+    <title>Code coverage report for FEC2212/src/Components/OVCarouselImage.jsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../../prettify.css" />
-    <link rel="stylesheet" href="../../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">FEC2212/src/Components/QnA</a> QandA.jsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">FEC2212/src/Components</a> OVCarouselImage.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
@@ -88,23 +88,29 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,32 +119,41 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {useState, useEffect}from 'react';
-import QuestionList from './QuestionList.jsx';
-import Search from './Search.jsx';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 &nbsp;
-const QnA = ({currQuestions, currProd}) =&gt; {
+function OVCarouselImage (props) {
+  let thing = null;
+  let borderVar = '';
+  let opacityVar  = '50%';
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (props.displayedPhoto === props.photo.url) {
+    borderVar = '2px black solid';
+    opacityVar = '100%';
+    thing = 'selected-style-image';
+  }
 &nbsp;
-  let filter = currQuestions.filter(<span class="fstat-no" title="function not covered" >(q</span>uestion) =&gt; {
-<span class="cstat-no" title="statement not covered" >    return Object.keys(question.answers).length &gt; 0;</span>
-  })
 &nbsp;
-  const [list, setList] = useState([]);
-&nbsp;
-  useEffect(() =&gt; {
-    setList(filter)
-  }, [currQuestions])
-&nbsp;
+  const handleClick = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    props.changeDisplayedPhoto(props.displayedStyle.photos[props.i].url);</span>
+<span class="cstat-no" title="statement not covered" >    props.changeIndexFunc(props.i);</span>
+  }
   return (
-    &lt;div&gt;
-      &lt;h3&gt;Questions &amp; Answers&lt;/h3&gt;
-      &lt;Search qs={list} setter={setList} sort={filter} all={currQuestions}/&gt;
-      &lt;QuestionList qs={list} prodId={currProd.id} prodName={currProd.name}/&gt;
-    &lt;/div&gt;
-  )
-};
 &nbsp;
-export default QnA;</pre></td></tr></table></pre>
+      &lt;img id={thing || <span class="branch-1 cbranch-no" title="branch not covered" >props.id}</span> onClick={handleClick} style={{border: borderVar}} className="carousel-image" src={props.photo.thumbnail_url}&gt;&lt;/img&gt;
+&nbsp;
+  )
+}
+&nbsp;
+export default OVCarouselImage;
+&nbsp;
+// &lt;div  onClick={() =&gt; {props.changeDisplayedPhoto(props.displayedStyle.photos[props.i].thumbnail_url)}} style={{border: borderVar}}&gt;
+//       &lt;img className="carousel-image" src={props.photo.thumbnail_url}&gt;&lt;/img&gt;
+//     &lt;/div&gt;
+&nbsp;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
@@ -147,14 +162,14 @@ export default QnA;</pre></td></tr></table></pre>
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2023-02-07T16:47:54.381Z
             </div>
-        <script src="../../../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../../sorter.js"></script>
-        <script src="../../../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     
