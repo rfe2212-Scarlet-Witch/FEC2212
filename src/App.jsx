@@ -25,11 +25,11 @@ function App() {
     })
     .then((data) => {
       changeProducts(data.data);//update the current products
-      changeProd(data.data[0]);//update the currently displayed product, defaults to first on page load.
+      changeProd(data.data[11]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[0].id}/styles`,
+        term: `/products/${data.data[18].id}/styles`,
       })
       .then((data) => {
         changeStyles(data.data.results); //update the current styles for the currently displayed product
@@ -52,7 +52,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-
+    if (!Array.isArray(currProd)) {
       axios.post('/revs', {
         term: '/reviews/',
         product_id: currProd.id,
@@ -76,6 +76,8 @@ function App() {
       .catch((err) => {
         throw err;
       });
+    }
+
 
   }, [reviewsSort, currProd])
 

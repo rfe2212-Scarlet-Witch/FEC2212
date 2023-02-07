@@ -43,6 +43,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
   const [fit, setFit] = useState('')
   const [images, setImages] = useState([]);
   const [minReached, setMinReached] = useState(false);
+  const [starsRated, setStarsRated] = useState(false);
 
   var toSend = {}
 
@@ -101,11 +102,8 @@ var AddReview = ({title, currentProduct, currMeta}) => {
       //Post request to /reviews
       axios.post('/revPost', {
         packet: toSend
-      }).then(() => {
-        // console.log(inputs)
-        setShowModal(false);
-
       })
+      setShowModal(false);
 
 
   };
@@ -180,6 +178,8 @@ var AddReview = ({title, currentProduct, currMeta}) => {
 
 
 
+
+
   var checkmark = true;
   return (
   <>
@@ -198,7 +198,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
         <form id="form3" onSubmit={handleSubmit}>
 
               <div>
-                {sumCharCounter >= 50 ? <div>Minimum Reached</div> : <div>Minimum Required Characters Left: {50 - sumCharCounter}</div>}
+                {sumCharCounter >= 50 ? <><div>Minimum Reached</div></> : <div>Minimum Required Characters Left: {50 - sumCharCounter}</div>}
               </div>
 
               <label>Your Review Body</label><br/>
@@ -209,6 +209,11 @@ var AddReview = ({title, currentProduct, currMeta}) => {
               onChange={(e) => {
                 handleChange(e);
                 setSumCharCounter(e.target.value.length)
+                if (e.target.value.length >= 50) {
+                  setMinReached(true);
+                } else {
+                  setMinReached(false);
+                }
               }}
               required
               /><br/>
@@ -307,11 +312,11 @@ var AddReview = ({title, currentProduct, currMeta}) => {
           <button onClick={() => setShowModal(false)}>
               Close
           </button>
-          { minReached ?
+          { minReached && starsRated ?
           <button variant="primary"
           type="submit" form="form3" value="Submit"
-          onSubmit={handleSubmit} onClick={() => setShowModal(false)}>Submit</button>
-          : null
+          onSubmit={handleSubmit}>Submit</button>
+          : <div style={styles.Red}>Form Incomplete</div>
           }
       </ModalFooter>
   </Modal>
