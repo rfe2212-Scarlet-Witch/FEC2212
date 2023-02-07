@@ -25,11 +25,11 @@ function App() {
     })
     .then((data) => {
       changeProducts(data.data);//update the current products
-      changeProd(data.data[18]);//update the currently displayed product, defaults to first on page load.
+      changeProd(data.data[2]);//update the currently displayed product, defaults to first on page load.
 
       //communicate with server, fetch api data for styles
       axios.post('', {
-        term: `/products/${data.data[18].id}/styles`,
+        term: `/products/${data.data[2].id}/styles`,
       })
       .then((data) => {
         changeStyles(data.data.results); //update the current styles for the currently displayed product
@@ -90,6 +90,20 @@ function App() {
     }
   }, [currProd])
   //console.log(currQuestions)
+
+  var arrayOfClicks = arrayOfClicks || [];
+
+  document.addEventListener('click', function(e) {
+    let data = {elementClicked: e.target,
+    time: `${e.timeStamp /1000}s`}
+  // console.log('element clicked is', e.target);
+  // console.log('time is', e.timeStamp/1000);
+    if(arrayOfClicks.indexOf(data)=== -1) {
+      arrayOfClicks.push(data);
+    }
+    console.log(arrayOfClicks);
+  })
+
   return (
     <div className="app">
       <Overview currMeta={currMeta} displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>

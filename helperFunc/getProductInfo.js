@@ -25,7 +25,7 @@ let getProductReviews = (term, product_id, sortBy) => {
       Authorization: config.TOKEN,
     },
     params: {
-      count: 300,
+      count: 30,
       product_id: product_id,
       sort: sortBy
     }
@@ -43,7 +43,7 @@ let getProductReviewsMeta = (term, product_id) => {
       Authorization: config.TOKEN,
     },
     params: {
-      count: 200,
+      count: 20,
       product_id: product_id,
     }
   };

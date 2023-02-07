@@ -3,16 +3,7 @@
 // }
 
 
-// body {
-//   margin-top: 0px;
-//   margin-right: 150px;
-//   margin-left: 150px;
-//   padding: 0px;
-//   background-color: white;
-//   font-family: system-ui;
-// }
-
-#body {
+body {
   margin-top: 0px;
   margin-right: 150px;
   margin-left: 150px;
@@ -21,13 +12,8 @@
   font-family: system-ui;
 }
 
-.night-body {
-  margin-top: 0px;
-  margin-right: 150px;
-  margin-left: 150px;
-  padding: 0px;
-  background-color: black;
-  font-family: system-ui;
+html {
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -64,9 +50,11 @@ h1 {
 }
 
 .text {
-  color: rgb(90, 90, 90);
-  padding: 10px;
-  font-weight: 200;
+  color: rgb(0, 0, 0);
+}
+
+.night-text {
+  color: rgb(255, 255, 255);
 }
 
 #Styles {
@@ -175,10 +163,11 @@ h1 {
   color: rgb(90, 90, 90);
 }
 
-.price {
+#price {
   flex-wrap: wrap;
   padding-top: 20px;
 }
+
 #prodPrice {
   padding-top: 20px;
 }

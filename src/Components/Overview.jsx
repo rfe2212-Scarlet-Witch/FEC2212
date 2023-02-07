@@ -8,12 +8,7 @@ const axios = require('axios');
 
 function Overview (props) {
 
-  const handleClick = () => {
-    let temp = document.getElementById('body');
-    if (temp) {
-      temp.setAttribute('id', 'night-body');
-    }
-  }
+
 
   return (
     <div>
@@ -21,11 +16,8 @@ function Overview (props) {
         <strong id='title'>
           BIZARRE BAZAAR
         </strong>
-        <strong id='toggle-mode' onClick={handleClick}>
-          toggle dark mode
-        </strong>
       </div>
-      <div id="message">
+      <div id="message" className="text">
         Welcome to bizarre bazaar! All products are completely free! Just pay shipping, handling, and a small processing fee equivalent to the price of the product!
       </div>
       <div className="OVProd">

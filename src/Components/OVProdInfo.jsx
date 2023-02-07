@@ -149,12 +149,15 @@ function OVProdInfo (props) {
   var recTotal = didNotRecommend + didRecommend;
   var percentRec = (didRecommend/recTotal) * 100;
 
+  const scroll = () => {
+    document.getElementById('rnrtitle').scrollIntoView();
+  }
 
   return (
     <div className='prodInfo'>
       <div>
         <Rating  readOnly={true} precision={1/4} value={(averageStars/100) * 5} size={'large'}/>
-        <u id='view-reviews'>view reviews</u>
+        <u id='view-reviews' onClick={scroll}>view reviews</u>
       </div>
       <strong id='category' >
         {props.currProd.category}
@@ -164,21 +167,21 @@ function OVProdInfo (props) {
         {props.currProd.name}
       </strong>
 
-      <strong className='price'>
+      <strong className='text' id='price'>
         <del id='salePrice' >
           {oldPrice}
         </del>
 
-        <strong id='prodPrice' style={{color: textColor}}>
+        <strong className='text' id='prodPrice' style={{color: textColor}}>
           {currPrice}
         </strong>
       </strong>
 
       <strong className='productStyle'>
-        <strong id="stylePointer">
+        <strong className='text' id="stylePointer">
           Style >&nbsp;
         </strong>
-        <strong id='styleName'>
+        <strong className='text' id='styleName'>
           {props.displayedStyle.name}
         </strong>
       </strong>

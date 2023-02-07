@@ -55,7 +55,7 @@ var RnR = (props) => {
 
   return (
       <>
-        <div>
+        <div id='rnrtitle'>
           Ratings & Reviews
         </div>
           <Card raised={true}>
