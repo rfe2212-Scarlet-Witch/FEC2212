@@ -41,7 +41,8 @@ var styles = {
     paddingTop: "2.5%",
     paddingLeft: "2.5%",
     paddingRight: "2.5%",
-    paddingBottom: "2.5%"
+    paddingBottom: "2.5%",
+    borderRadius: '10px'
   },
   summary : {
     fontWeight: 'bold'
@@ -113,7 +114,7 @@ var fullScreenImage = () => {
         <div>{renderThis.body}</div>
         {renderThis.recommend ? <div style={styles.recFormat}><div>I Recommend This Product</div><IoIosCheckmark style={styles.checkmark}/></div> : <div></div>}
         <ImageHandler renderPics={renderPics}/>
-        {renderThis.response ? <div>Response From Seller: {renderThis.response}</div> : <div>No Response</div>}
+        {renderThis.response ? <Card><div>Response From Seller: {renderThis.response}</div></Card> : null}
       </div>
       {/* {console.log(renderThis.review_id)} */}
       <>

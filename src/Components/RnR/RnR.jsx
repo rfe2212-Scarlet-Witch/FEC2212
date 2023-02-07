@@ -50,6 +50,14 @@ var RnR = (props) => {
     },
     box: {
       // border: "1px solid red"
+    },
+    card : {
+      background: '#d3d3d3',
+      borderRadius: '20px'
+    },
+    leftCard: {
+      padding: '10px',
+      borderRadius: '10px'
     }
   }
 
@@ -58,11 +66,13 @@ var RnR = (props) => {
         <div>
           Ratings & Reviews
         </div>
-          <Card raised={true}>
+          <Card raised={true} style={styles.card}>
             <div style={styles.Reviews}>
               <div style={styles.ReviewsLeft}>
+                <Card style={styles.leftCard}>
                 <Stars  allReviews={currReviews} filters={filters} setFilters={setFilters} currMeta={currMeta}/>
                 <Scales currMeta={currMeta}/>
+                </Card>
               </div>
               <div>
               <div style={styles.ReviewsRight}>

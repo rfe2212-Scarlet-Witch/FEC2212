@@ -49,7 +49,7 @@ var ReviewsView = (props) => {
               <option value="helpful">helpful</option>
               <option value="relevant">relevant</option>
             </select>
-            Filtered By: {filters.map((elem) => (<li>{elem}</li>))}
+            Filtered By: {filters.map((elem, index) => (<li key={index}>{elem}</li>))}
             {filters.length > 0 ? <button onClick={() => {setFilters([])}}>Reset Filters</button> : <div></div>}
           </div>
           <div style={styles.SortedReviews}>
