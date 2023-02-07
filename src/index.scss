@@ -1,7 +1,7 @@
-// * {
-//   border: 1px  black solid;
-// }
-
+:root {
+  --blue: rgb(18, 18, 18);
+  --white: rgb(236, 236, 236);
+}
 
 // body {
 //   margin-top: 0px;
@@ -17,8 +17,45 @@
   margin-right: 150px;
   margin-left: 150px;
   padding: 0px;
-  background-color: white;
   font-family: system-ui;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-weight: var(--font-weight);
+  transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+}
+
+body.light {
+  --background-color: var(--white);
+  --text-color: var(--blue);
+  --font-weight: 400;
+
+  #darkMode,
+  #darkMode:focus {
+    filter: none;
+    --background-color: var(--blue);
+    cursor: pointer;
+  }
+
+#darkMode.clicked {
+  filter: none !important;
+}
+}
+
+body.dark {
+  --background-color: var(--blue);
+  --text-color: var(--white);
+  --font-weight: 500;
+
+  #darkMode,
+  #darkMode:focus {
+  filter: none;
+  --background-color: var(--white);
+  cursor: pointer;
+}
+
+#darkMode.clicked {
+  filter: none !important;
+}
 }
 
 .night-body {
@@ -441,10 +478,76 @@ h1 {
 .answerthumbnail {
   margin: auto;
   object-fit: contain;
-  background-color: green;
+  cursor: pointer;
   &:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     background-color: red;
+    border-radius: 5px;
   }
 }
+
+.required::after{
+  content: "*";
+}
+.qnabtn{
+  background-color:white;
+  border-color: black;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  &:hover{
+    background-color: rgb(216, 213, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+}
+
+.title{
+  font-size: large;
+  margin-right: 2px;
+  font-weight: bold;
+  display:contents;
+}
+
+.text-muted2{
+  font-size: 13px;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+.txtbtn{
+  cursor: pointer;
+  &:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+}
+.ans{
+  font-weight:900;
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+}
+.anstile{
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19);
+  border-radius: 0px 10px;
+}
+.question{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#darkMode {
+  background-color: var(--background-color);
+  background-size: 30px 30px;
+  width: 45px;
+  height: 45px;
+  filter: grayscale(100%);
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
 
