@@ -13,11 +13,11 @@ function Overview (props) {
   return (
     <div>
       <div id="header">
-        <strong id='title'>
+        <strong onClick={() => console.log(props.arrayOfClicks)}id='title'>
           BIZARRE BAZAAR
         </strong>
       </div>
-      <div id="message" className="text">
+      <div id="message" >
         Welcome to bizarre bazaar! All products are completely free! Just pay shipping, handling, and a small processing fee equivalent to the price of the product!
       </div>
       <div className="OVProd">

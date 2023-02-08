@@ -167,21 +167,21 @@ function OVProdInfo (props) {
         {props.currProd.name}
       </strong>
 
-      <strong className='text' id='price'>
+      <strong  id='price'>
         <del id='salePrice' >
           {oldPrice}
         </del>
 
-        <strong className='text' id='prodPrice' style={{color: textColor}}>
+        <strong id='prodPrice' style={{color: textColor}}>
           {currPrice}
         </strong>
       </strong>
 
       <strong className='productStyle'>
-        <strong className='text' id="stylePointer">
+        <strong id="stylePointer">
           Style >&nbsp;
         </strong>
-        <strong className='text' id='styleName'>
+        <strong id='styleName'>
           {props.displayedStyle.name}
         </strong>
       </strong>

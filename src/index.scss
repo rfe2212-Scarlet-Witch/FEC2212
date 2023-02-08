@@ -35,7 +35,7 @@ body.light {
 body.dark {
   --background-color: var(--blue);
   --text-color: var(--white);
-  --font-weight: 500;
+  --font-weight: 400;
 
   #darkMode,
   #darkMode:focus {
@@ -64,7 +64,7 @@ h1 {
 }
 
 #title {
-  color: white;
+  color: (236, 236, 236);
   font-size: 75px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding-left: 20px;

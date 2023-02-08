@@ -14,6 +14,8 @@ const QnA = ({currQuestions, currProd}) => {
     setList(filter)
   }, [currQuestions])
 
+
+
   return (
     <div>
       <h3>Questions & Answers</h3>
