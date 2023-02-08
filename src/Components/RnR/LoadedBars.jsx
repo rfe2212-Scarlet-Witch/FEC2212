@@ -29,7 +29,10 @@ var LoadedBars = (props) => {
 
   var styles = {
     bar: {
-      height: '15px'
+      height: '15px',
+      borderRadius: '5px'
+      // background: 'black',
+      // barColorPrimary: 'black'
     }
   }
 
@@ -38,7 +41,7 @@ var LoadedBars = (props) => {
     <span>
       <div onClick={() => {setFilter('Five Stars')}}>Five Stars</div>
         <div className='fiveBar'>
-          <LinearProgress  style={styles.bar} value={(five/sum) * 100} variant={'determinate'} />
+          <LinearProgress  style={styles.bar} value={(five/sum) * 100} variant={'determinate'} sx={{colorPrimary: 'black'}}/>
         </div>
       <div>{five}</div>
       <div onClick={() => {setFilter('Four Stars')}}>Four Stars</div>

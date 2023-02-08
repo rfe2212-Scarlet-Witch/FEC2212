@@ -43,6 +43,21 @@ body.dark {
   --background-color: var(--white);
   cursor: pointer;
 }
+  #reviewCard {
+    background-color: grey;
+  }
+  #overallCard {
+    background-color: rgba(99, 98, 98, 0.737);
+  }
+  #leftCard {
+    background-color: rgb(171, 174, 182);
+  }
+  .MuiLinearProgress-colorPrimary {
+    background-color: rgb(68, 66, 66);
+  }
+  .MuiLinearProgress-barColorPrimary {
+    background-color: grey;
+  }
 
 #darkMode.clicked {
   filter: none !important;

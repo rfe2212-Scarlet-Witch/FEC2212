@@ -61,7 +61,7 @@ let getProductQuestions = (term, product_id) => {
     },
     params: {
       product_id: product_id,
-      count: 200
+      count: 20
     }
   };
 

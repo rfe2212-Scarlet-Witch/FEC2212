@@ -9,7 +9,7 @@ it('tests the tests', () => {
 
   //REPLACE APP WITH YOUR COMPONENT NAME
   render(<App/>);
-  expect(screen.getByText(('To be used by review component'))).toBeInTheDocument()
+  expect(screen.getByText(('Ratings & Reviews'))).toBeInTheDocument()
 
 
 })

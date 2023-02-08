@@ -50,6 +50,19 @@ var RnR = (props) => {
     },
     box: {
       // border: "1px solid red"
+    },
+    card : {
+      // background: '#d3d3d3',
+      borderRadius: '20px'
+    },
+    leftCard: {
+      padding: '10px',
+      borderRadius: '10px'
+    },
+    title :{
+      display: 'flex',
+      justifyContent: 'space-evenly',
+      fontFamily: 'cursive'
     }
   }
 
@@ -57,14 +70,16 @@ var RnR = (props) => {
 
   return (
       <>
-        <div id='rnrtitle'>
+        <div style={styles.title} id='rnrtitle'>
           Ratings & Reviews
         </div>
-          <Card raised={true}>
+          <Card raised={true} style={styles.card} id="overallCard">
             <div style={styles.Reviews}>
               <div style={styles.ReviewsLeft}>
-                <Stars  allReviews={currReviews} filters={filters} setFilters={setFilters} currMeta={currMeta}/>
-                <Scales currMeta={currMeta}/>
+                <Card style={styles.leftCard} id='leftCard'>
+                  <Stars  allReviews={currReviews} filters={filters} setFilters={setFilters} currMeta={currMeta}/>
+                  <Scales currMeta={currMeta}/>
+                </Card>
               </div>
               <div>
               <div style={styles.ReviewsRight}>
