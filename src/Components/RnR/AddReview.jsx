@@ -183,7 +183,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
   var checkmark = true;
   return (
   <>
-  <Button onClick={() => setShowModal(true)}>
+  <Button data-testid='Add Review Buttonn' onClick={() => setShowModal(true)}>
     Add Review +
   </Button>
   <Modal show={showModal} setShow={setShowModal} style={styles.Modal}>
@@ -195,7 +195,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
       </ModalHeader>
       <ModalBody>
 
-        <form id="form3" onSubmit={handleSubmit}>
+        <form id="form3" onSubmit={handleSubmit} >
 
               <div>
                 {sumCharCounter >= 50 ? <><div>Minimum Reached</div></> : <div>Minimum Required Characters Left: {50 - sumCharCounter}</div>}
@@ -205,6 +205,7 @@ var AddReview = ({title, currentProduct, currMeta}) => {
               <textarea
               rows="20" cols="55" maxLength="1000" minLength="50"
               name="body"
+              data-testid='AddRev Form'
               value={inputs.body || ""}
               onChange={(e) => {
                 handleChange(e);

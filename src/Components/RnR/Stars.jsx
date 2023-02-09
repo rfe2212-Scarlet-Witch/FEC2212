@@ -58,7 +58,7 @@ var Stars = (props) => {
 
   return (
     <>
-        <div>
+        <div data-testid='LeftCardStars'>
           <div style={style.Rating}>
           {Math.floor(averageStars) + '%'}
           </div>

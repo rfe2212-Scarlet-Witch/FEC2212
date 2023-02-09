@@ -74,9 +74,9 @@ var RnR = (props) => {
           <Card raised={true} style={styles.card} id="overallCard">
             <div style={styles.Reviews}>
               <div style={styles.ReviewsLeft}>
-                <Card style={styles.leftCard} id='leftCard'>
+                <Card style={styles.leftCard} id='leftCard' data-testid='LeftCard'>
                   <Stars  allReviews={currReviews} filters={filters} setFilters={setFilters} currMeta={currMeta}/>
-                  <Scales currMeta={currMeta}/>
+                  <Scales currMeta={currMeta} />
                 </Card>
               </div>
               <div>
