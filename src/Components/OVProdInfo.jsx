@@ -100,12 +100,10 @@ function OVProdInfo (props) {
     document.getElementById("select-size").removeAttribute('disabled');
     document.getElementById('default').setAttribute('disabled', true);
     document.getElementById('cart').removeAttribute('hidden', true);
-    if (!document.getElementById('select-size').value) {
-      // console.log('no size selected');
-    }
+
     //if size is selected and no amount selected, default to 1 quantity
     if (document.getElementById('select-size').value && !document.getElementById('select-amount').value) {
-      document.getElementById("default-size").setAttribute('disabled', true);
+      // document.getElementById("default-size").setAttribute('disabled', true);
       document.getElementById('select-amount').value = 0;
     }
     font = 'SELECT SIZE'; //this line changes the text inside of the size selector
@@ -151,12 +149,15 @@ function OVProdInfo (props) {
   var recTotal = didNotRecommend + didRecommend;
   var percentRec = (didRecommend/recTotal) * 100;
 
+  const scroll = () => {
+    document.getElementById('rnrtitle').scrollIntoView();
+  }
 
   return (
     <div className='prodInfo'>
       <div>
         <Rating  readOnly={true} precision={1/4} value={(averageStars/100) * 5} size={'large'}/>
-        <u id='view-reviews'>view reviews</u>
+        <u id='view-reviews' onClick={scroll}>view reviews</u>
       </div>
       <strong id='category' >
         {props.currProd.category}
@@ -166,7 +167,7 @@ function OVProdInfo (props) {
         {props.currProd.name}
       </strong>
 
-      <strong className='price'>
+      <strong  id='price'>
         <del id='salePrice' >
           {oldPrice}
         </del>
