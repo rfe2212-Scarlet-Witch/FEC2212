@@ -9,7 +9,7 @@ it('tests the tests', () => {
 
   //REPLACE APP WITH YOUR COMPONENT NAME
   render(<App/>);
-  expect(screen.getByText(('To be used by review component'))).toBeInTheDocument()
+  expect(screen.getByText(('Welcome to bizarre bazaar! All products are completely free! Just pay shipping, handling, and a small processing fee equivalent to the price of the product!'))).toBeInTheDocument()
 
 
 })

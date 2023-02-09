@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">88.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/17</span>
+                <span class='fraction'>15/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.35% </span>
+                <span class="strong">88.23% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/17</span>
+                <span class='fraction'>15/17</span>
             </div>
         
             
@@ -115,21 +115,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">35x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">35x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -144,19 +144,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">35x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">35x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useRef } from 'react';
@@ -166,8 +166,8 @@ const Modal = props =&gt; {
     const modalRef = useRef();
 &nbsp;
     useEffect(() =&gt; {
-        const clickOutsideContent = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
-<span class="cstat-no" title="statement not covered" >            if (e.target === modalRef.current) {</span>
+        const clickOutsideContent = (e) =&gt; {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (e.target === modalRef.current) {
 <span class="cstat-no" title="statement not covered" >                props.setShow(false);</span>
             }
         };
@@ -177,7 +177,7 @@ const Modal = props =&gt; {
         };
     }, [props]);
 &nbsp;
-    return &lt;div ref={modalRef} className={`modal ${props.show ? <span class="branch-0 cbranch-no" title="branch not covered" >'active' </span>: ''}`}&gt;
+    return &lt;div ref={modalRef} className={`modal ${props.show ? 'active' : ''}`}&gt;
         &lt;div className="modal__content"&gt;
             {
                 !props.hideCloseButton &amp;&amp; &lt;span onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.setShow(false)}</span> className="modal__close"&gt;
@@ -214,7 +214,7 @@ export const ModalFooter = props =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-07T16:47:54.381Z
+                at 2023-02-08T16:56:16.132Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

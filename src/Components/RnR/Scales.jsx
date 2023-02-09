@@ -168,6 +168,7 @@ var Scales = (props) => {
 
   return (
     <>
+    <div data-testid='LeftCardScales'>
     {calculatedComfort !== 0 ? (
       <>
       <div style={stylers.ComfortTitle}>
@@ -353,6 +354,7 @@ var Scales = (props) => {
       </div>
       </>
         ): null}
+        </div>
     </>
   )
 }
