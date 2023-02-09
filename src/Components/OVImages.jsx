@@ -10,6 +10,8 @@ function OVImages (props) {
   const [rightArrow, setRightArrow] = useState('right-arrow')
   const [leftArrow, setLeftArrow] = useState('left-arrow')
   const [imageCarousel, setCarousel] = useState('image-carousel');
+  const [top, setTop] = useState(true);
+  const [carouselPhotos, setCarouselPhotos] = useState([]);
 
   let left = '←'
   let right ='→'
@@ -113,16 +115,34 @@ useEffect(() => {
   }
 }, [imageStyle])
 
+  let limCarousel = props.displayedStyle.photos.slice(0 , 7);
+  let nextCarousel = props.displayedStyle.photos.slice(7, props.displayedStyle.photos.slice);
+
+  // setCarouselPhotos(limCarousel);
+  const bottomClick = () => {
+    setTop(false);
+    limCarousel = props.displayedStyle.photos.slice(7, props.displayedStyle.photos.length);
+  }
+
+  const topClick = () => {
+    setTop(true);
+  }
 
   return (
     <div id='image-container'>
       <div id={imageCarousel}>
+        <div id="carousel-up" onClick={topClick}>
+        {!top ? '↑' : ''}
+        </div>
         <div>
         {
-          props.displayedStyle.photos.map((photo, i) => {
+          limCarousel.map((photo, i) => {
             return <OVCarouselImage changeIndexFunc={changeIndexFunc} displayedPhoto={props.displayedPhoto} changeDisplayedPhoto={props.changeDisplayedPhoto} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle} key={i} photo={photo} i={i}/>
           })
         }
+        </div>
+        <div id="carousel-down" onClick={bottomClick}>
+        {top ? '↓' : ''}
         </div>
       </div>
 

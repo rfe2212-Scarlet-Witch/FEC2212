@@ -66,9 +66,11 @@ var RnR = (props) => {
     }
   }
 
+
+
   return (
       <>
-        <div style={styles.title}>
+        <div style={styles.title} id='rnrtitle'>
           Ratings & Reviews
         </div>
           <Card raised={true} style={styles.card} id="overallCard">

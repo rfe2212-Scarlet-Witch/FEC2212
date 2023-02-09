@@ -10,17 +10,14 @@ function Overview (props) {
 
 
 
-
-
-
   return (
     <div>
       <div id="header">
-        <strong id='title'>
+        <strong onClick={() => console.log(props.arrayOfClicks)}id='title'>
           BIZARRE BAZAAR
         </strong>
       </div>
-      <div id="message">
+      <div id="message" >
         Welcome to bizarre bazaar! All products are completely free! Just pay shipping, handling, and a small processing fee equivalent to the price of the product!
       </div>
       <div className="OVProd">
@@ -33,18 +30,3 @@ function Overview (props) {
 
 export default Overview;
 
-// <div id='Overview'>
-//       <strong className='text'>
-//         {props.currProd.name}
-//       </strong>
-//       <section>
-//         <div currStyles={props.currStyles} >
-//           <OVImages displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle}/>
-//         </div>
-//       </section>
-//       <aside id='Styles'>
-//       {props.currStyles.map((style, index) => {
-//         return <OVStyle currStyles={props.currStyles} changeStyles={props.changeStyles} displayedStyle={props.displayedStyle} changeDisplayedStyle={props.changeDisplayedStyle} style={style} key={index} id={index}/>
-//       })}
-//       </aside>
-//     </div>

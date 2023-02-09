@@ -92,12 +92,35 @@ function App() {
     }
   }, [currProd])
   //console.log(currQuestions)
+
+  var arrayOfClicks = arrayOfClicks || [];
+
+  document.addEventListener('click', function(e) {
+    let data = {elementClicked: e.target,
+    time: `${e.timeStamp /1000}s`}
+
+
+      if (e.pageY > 760 && e.pageY < 1410) {
+        data.moduleClicked = 'QnA';
+      } else if (e.pageY > 1410) {
+        data.moduleClicked = 'RnR';
+      } else {
+        data.moduleClicked = 'Overview';
+      }
+    if(arrayOfClicks.indexOf(data)=== -1) {
+      arrayOfClicks.push(data);
+    }
+
+  })
+
+
+
   return (
     <div className="app">
-      <Overview currMeta={currMeta} displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
+      <Overview  arrayOfClicks={arrayOfClicks} currMeta={currMeta} displayedPhoto={displayedPhoto} changeDisplayedPhoto={changeDisplayedPhoto} displayedStyle={displayedStyle} changeDisplayedStyle={changeDisplayedStyle} currStyles={currStyles} changeStyles={changeStyles} currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts}/>
       <DarkMode />
-      <QnA currProd={currProd} currQuestions={currQuestions}/>
-      <RnR currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
+      <QnA  currProd={currProd} currQuestions={currQuestions}/>
+      <RnR  currProd={currProd} changeProd={changeProd} currProducts={currProducts} changeProducts={changeProducts} currReviews={currReviews} currMeta={currMeta} reviewsSort={reviewsSort} setReviewsSort={setReviewsSort} reRender={reRender}/>
     </div>
   );
 }
